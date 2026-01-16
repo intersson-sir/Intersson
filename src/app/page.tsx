@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
+import Antigravity from '@/components/Antigravity';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -32,9 +33,27 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {/* Background Effects */}
-      <div className={styles.liquidBackground}>
-        <div className={`${styles.blob} ${styles.blobPriority}`} />
-        <div className={`${styles.blob} ${styles.blobSecondary}`} />
+      <div className={styles.liquidBackground} style={{ zIndex: 0 }}>
+        {/* We keep the liquid blobs for underlying ambiance, but overlay the 3D effect or replace it? 
+            User asked to "set animation on background... leave everything as is only add animation".
+            So we will overlay the Canvas on top of the dark background but behind content. 
+        */}
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
+          <Antigravity
+            color="#6c136c"
+            count={150}
+            magnetRadius={15}
+            ringRadius={15}
+            fieldStrength={2}
+            particleSize={3}
+            autoAnimate={true}
+          />
+        </div>
+
+        {/* Original Blobs - kept for depth if needed, or can be removed if they clash. 
+            Let's keep them with lower opacity to blend. */}
+        <div className={`${styles.blob} ${styles.blobPriority}`} style={{ opacity: 0.3 }} />
+        <div className={`${styles.blob} ${styles.blobSecondary}`} style={{ opacity: 0.2 }} />
       </div>
 
       {/* Navbar */}

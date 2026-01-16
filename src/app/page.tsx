@@ -1,66 +1,230 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from 'next/image';
+import styles from './page.module.css';
+
+// Asset Mappings from downloaded files
+// Using the order from Figma output to map to logical names
+const ICONS = {
+  payment: '/assets/fde13eaf788be23e82c4fede7454f58cdfb513d7.svg',
+  launch: '/assets/ec70190d3379dbc9a3b104bb3eaa51758e7c76af.svg',
+  buy: '/assets/1da7c1bad03c24b2b22b050dc70555c0f8f88a8f.svg',
+  management: '/assets/8a6390b73769e926b7dfd4ff320b13664295967e.svg',
+  hosting: '/assets/fa3ee9bd31fbe8fa510ef51a497cca852bdfacd3.svg',
+  support: '/assets/d645c60acca952092aadb66d43b0fb7333c2a94b.svg',
+
+  // Category Icons (assumed order)
+  business: '/assets/90562c50fdfd079c0ed41d0c86258f942d30195a.svg',
+  ecommerce: '/assets/1652c3c10800008bb143ddd70471f82229302885.svg',
+  personal: '/assets/9f0a87cfee1ec41beb28b47e5dcf5e7532b5585b.svg',
+  restaurants: '/assets/89e136283dd51fddb3fc4b2690b593ee4fa206c8.svg',
+  fashion: '/assets/19a4baa3c6b1498c80155afecfead2efeae90869.svg',
+  construction: '/assets/1a13567ccf7c5ffd91582b2a53463d17d3bc44c2.svg',
+  education: '/assets/f6e5add6d7e675e7e984dd5d372d76e5e9fe46dc.svg',
+  tech: '/assets/2e15740500d1b41eee89eb97a91123a361501fe4.svg',
+  events: '/assets/454a1b645f5ec85709725062b685a3bd743b899e.svg',
+  sports: '/assets/a72b290d1a23addacbd7561d2d23896361a8ba54.svg',
+
+  // UI Icons
+  code: '/assets/fdeec34e64b35c3db480c688d12a95346b9bfebf.svg',
+  wrench: '/assets/16b897e7c5ea01af9096f4d6927fd7decf395561.svg'
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={styles.main}>
+      {/* Background Effects */}
+      <div className={styles.liquidBackground}>
+        <div className={`${styles.blob} ${styles.blobPriority}`} />
+        <div className={`${styles.blob} ${styles.blobSecondary}`} />
+      </div>
+
+      {/* Navbar */}
+      <nav style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '24px 40px',
+        position: 'relative',
+        zIndex: 20
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '20px' }}>
+          <div style={{ width: 24, height: 24, background: 'linear-gradient(135deg, #FF3BFF, #5C24FF)', borderRadius: 6 }}></div>
+          INTERSSON
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div style={{ display: 'flex', gap: '32px', fontSize: '14px', color: '#99A1AF' }}>
+          <a href="#" style={{ color: 'white', textDecoration: 'none' }}>Features</a>
+          <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Categories</a>
+          <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Pricing</a>
         </div>
-      </main>
+        <button style={{
+          background: 'rgba(255,255,255,0.1)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          padding: '8px 16px',
+          borderRadius: '99px',
+          color: 'white',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }}>Client Portal</button>
+      </nav>
+
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.tag}>Beta Launch</div>
+        <h1 className={styles.title}>
+          Professional Websites<br />
+          Through Subscription
+        </h1>
+        <p className={styles.subtitle}>
+          Get a custom website for just $100-$500/month. No upfront costs.
+          Launch in 1-3 days. Buy it out anytime when your business grows.
+        </p>
+
+        <div className={styles.buttonGroup}>
+          <button className={styles.primaryButton}>Get Started →</button>
+          <button className={styles.secondaryButton}>View Templates</button>
+        </div>
+
+        <div className={styles.statsRow}>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>500+</span>
+            <span className={styles.statLabel}>Active Users</span>
+          </div>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>1-3 Days</span>
+            <span className={styles.statLabel}>Launch Time</span>
+          </div>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>$0</span>
+            <span className={styles.statLabel}>Upfront Cost</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.tag}>Why Intersson</div>
+          <h2 className={styles.title} style={{ fontSize: '48px' }}>Built for Entrepreneurs</h2>
+          <p className={styles.subtitle}>Everything you need to get your business online without breaking the bank.</p>
+        </div>
+
+        <div className={styles.grid}>
+          <FeatureCard
+            icon={ICONS.payment}
+            title="No Upfront Payment"
+            text="Start without a massive subscription. No terrible world-class investment required."
+          />
+          <FeatureCard
+            icon={ICONS.launch}
+            title="Launch in 1-3 Days"
+            text="Choose from ready-made templates and get your custom website in no time."
+          />
+          <FeatureCard
+            icon={ICONS.buy}
+            title="Buy Anytime"
+            text="Purchase full ownership of your website domain + files whenever you're ready."
+          />
+          <FeatureCard
+            icon={ICONS.management}
+            title="Easy Content Management"
+            text="Edit text and images through a simple dashboard. Request changes anytime."
+          />
+          <FeatureCard
+            icon={ICONS.hosting}
+            title="Hosting Included"
+            text="We handle all hosting and maintenance while your subscription is active."
+          />
+          <FeatureCard
+            icon={ICONS.support}
+            title="24/7 Support"
+            text="Get help whenever you need it. Technical support is included in all plans."
+          />
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.tag}>Our Services</div>
+          <h2 className={styles.title} style={{ fontSize: '48px' }}>Two Ways We Can Help</h2>
+        </div>
+
+        <div className={styles.servicesGrid}>
+          <div className={styles.serviceCard}>
+            <div className={styles.iconBox} style={{ background: 'linear-gradient(135deg, #441AAD, #2A0E6E)' }}>
+              <Image src={ICONS.code} width={24} height={24} alt="Website" />
+            </div>
+            <h3 className={styles.cardTitle}>Website Creation</h3>
+            <p className={styles.cardText}>
+              New websites built from professional templates with full customization.
+              Choose your category, select a design, and launch in days.
+            </p>
+          </div>
+          <div className={styles.serviceCard}>
+            <div className={styles.iconBox} style={{ background: 'linear-gradient(135deg, #FF5B22, #C23600)' }}>
+              <Image src={ICONS.wrench} width={24} height={24} alt="Support" />
+            </div>
+            <h3 className={styles.cardTitle}>Technical Support</h3>
+            <p className={styles.cardText}>
+              Monthly maintenance for your existing website. We fix bugs, update content, and keep everything running smoothly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.tag}>Simple Pricing</div>
+          <h2 className={styles.title} style={{ fontSize: '48px' }}>Choose Your Plan</h2>
+          <p className={styles.subtitle}>Start with monthly subscription, buy out anytime</p>
+        </div>
+
+        <div className={styles.pricingGrid}>
+          <PricingCard title="Starter" price="100" buyout="1,500" features={['All UI Designs', 'Basic Template Customization', 'Hosting Included', 'SSL Certificate']} />
+          <PricingCard title="Professional" price="250" buyout="3,000" features={['All UI Designs', 'Advanced Customization', 'Priority Support', 'Hosting & SSL', 'Google Analytics']} featured={true} />
+          <PricingCard title="Enterprise" price="500" buyout="6,000" features={['Custom Design', 'Full Code Access', '24/7 Priority Support', 'Dedicated Manager', 'Custom Functionality']} />
+        </div>
+      </section>
+
+      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '40px 20px', textAlign: 'center', color: '#666', fontSize: '12px' }}>
+        <p>© 2026 Intersson. All rights reserved.</p>
+      </footer>
+    </main>
+  );
+}
+
+function FeatureCard({ icon, title, text }: { icon: string, title: string, text: string }) {
+  return (
+    <div className={styles.card}>
+      <div className={styles.iconBox}>
+        <Image src={icon} width={24} height={24} alt="" />
+      </div>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <p className={styles.cardText}>{text}</p>
+    </div>
+  );
+}
+
+function PricingCard({ title, price, buyout, features, featured }: { title: string, price: string, buyout: string, features: string[], featured?: boolean }) {
+  return (
+    <div className={styles.pricingCard} style={featured ? { borderColor: '#D42EC6', boxShadow: '0 0 40px rgba(212,46,198,0.1)' } : {}}>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <div className={styles.pricingPrice}>
+        ${price}<span style={{ fontSize: '16px', color: '#666', fontWeight: 400 }}>/month</span>
+      </div>
+      <div style={{ color: '#4ADE80', fontSize: '14px', marginBottom: '24px' }}>
+        Buyout: ${buyout}
+      </div>
+      <ul className={styles.pricingList}>
+        {features.map((f, i) => (
+          <li key={i} className={styles.pricingItem}>
+            <span className={styles.checkIcon}>✓</span> {f}
+          </li>
+        ))}
+      </ul>
+      <button className={styles.primaryButton} style={{ width: '100%', background: featured ? undefined : 'rgba(255,255,255,0.1)' }}>
+        Get Started
+      </button>
     </div>
   );
 }

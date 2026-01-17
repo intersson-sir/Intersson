@@ -1,0 +1,123 @@
+.main {
+    min-height: 100vh;
+    background-color: #030014;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 24px 60px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #99A1AF;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+}
+
+.backLink:hover {
+    color: white;
+}
+
+.title {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    font-size: 18px;
+    color: #99A1AF;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.templatesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.templateCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.templateCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.previewArea {
+    height: 200px;
+    /* Placeholder height */
+    background: #1A1A2E;
+    /* Dark placeholder bg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pdfIcon {
+    width: 48px;
+    height: 48px;
+    color: #FF3BFF;
+    opacity: 0.8;
+}
+
+.cardContent {
+    padding: 24px;
+}
+
+.templateName {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.pdfLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.pdfLink:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.notFound {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 import Antigravity from '@/components/Antigravity';
 
@@ -230,60 +231,70 @@ export default function Home() {
             title="Business & Services"
             count="15 templates"
             gradient="linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)"
+            slug="business-services"
           />
           <IndustryCard
             icon={ICONS.ecommerce}
             title="E-commerce"
             count="20 templates"
             gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
+            slug="ecommerce"
           />
           <IndustryCard
             icon={ICONS.personal}
             title="Personal Brands"
             count="12 templates"
             gradient="linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)"
+            slug="personal-brands"
           />
           <IndustryCard
             icon={ICONS.restaurants}
             title="Restaurants & Delivery"
             count="10 templates"
             gradient="linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)"
+            slug="restaurants-delivery"
           />
           <IndustryCard
             icon={ICONS.fashion}
             title="Medicine & Beauty"
             count="14 templates"
             gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
+            slug="medicine-beauty"
           />
           <IndustryCard
             icon={ICONS.construction}
             title="Construction & Real Estate"
             count="11 templates"
             gradient="linear-gradient(135deg, #6B7280 0%, #4B5563 100%)"
+            slug="construction-real-estate"
           />
           <IndustryCard
             icon={ICONS.education}
             title="Education"
             count="13 templates"
             gradient="linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)"
+            slug="education"
           />
           <IndustryCard
             icon={ICONS.tech}
             title="Tech / SaaS"
             count="18 templates"
             gradient="linear-gradient(135deg, #00D4D4 0%, #00A8A8 100%)"
+            slug="tech-saas"
           />
           <IndustryCard
             icon={ICONS.events}
             title="Events"
             count="9 templates"
             gradient="linear-gradient(135deg, #9B5FFF 0%, #7B3FFF 100%)"
+            slug="events"
           />
           <IndustryCard
             icon={ICONS.sports}
             title="Fitness & Sports"
             count="10 templates"
             gradient="linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)"
+            slug="fitness-sports"
           />
         </div>
       </section>
@@ -572,8 +583,8 @@ function FeatureCardNew({ icon, title, text, gradient }: { icon: string, title: 
   );
 }
 
-function IndustryCard({ icon, title, count, gradient }: { icon: string, title: string, count: string, gradient: string }) {
-  return (
+function IndustryCard({ icon, title, count, gradient, slug }: { icon: string, title: string, count: string, gradient: string, slug?: string }) {
+  const content = (
     <div className={styles.industryCard}>
       <div className={styles.industryIconBox} style={{ background: gradient }}>
         <div className={styles.gradientOverlay} />
@@ -585,6 +596,16 @@ function IndustryCard({ icon, title, count, gradient }: { icon: string, title: s
       </div>
     </div>
   );
+
+  if (slug) {
+    return (
+      <Link href={`/industries/${slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }
 
 function PricingCard({ title, price, buyout, features, featured }: { title: string, price: string, buyout: string, features: string[], featured?: boolean }) {

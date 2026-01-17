@@ -1,0 +1,184 @@
+.formHeader {
+    margin-bottom: 24px;
+}
+
+.ticketSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ticketCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.ticketCard:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.ticketHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticketId {
+    font-size: 13px;
+    color: #99A1AF;
+}
+
+.ticketStatus {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.statusCompleted {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.statusInProgress {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60A5FA;
+}
+
+.statusPending {
+    background: rgba(251, 191, 36, 0.1);
+    color: #FBBF24;
+}
+
+.ticketDate {
+    font-size: 12px;
+    color: #666;
+}
+
+.ticketTitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: #E5E7EB;
+}
+
+.ticketMeta {
+    font-size: 13px;
+    color: #99A1AF;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #E5E7EB;
+    margin-bottom: 8px;
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    border-color: rgba(92, 36, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 4.5L6 8L9.5 4.5' stroke='%2399A1AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.submitButton {
+    width: 100%;
+    background: linear-gradient(92.24deg, #FF3BFF 0%, #5C24FF 100%);
+    padding: 14px;
+    border-radius: 99px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    transition: opacity 0.2s;
+}
+
+.submitButton:hover {
+    opacity: 0.9;
+}
+
+.upgradeCard {
+    background: radial-gradient(136.6% 145.42% at -3.37% 0%, rgba(30, 48, 89, 0.5) 0%, rgba(15, 15, 16, 0.5) 100%);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.upgradeTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.upgradeText {
+    font-size: 14px;
+    color: #99A1AF;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.upgradeButton {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upgradeButton:hover {
+    background: #E5E7EB;
+}

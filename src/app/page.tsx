@@ -216,6 +216,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Choose Your Industry Section */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.tag}>Template Categories</div>
+          <h2 className={styles.title} style={{ fontSize: '48px' }}>Choose Your Industry</h2>
+          <p className={styles.subtitle}>Over 130+ professionally designed templates across 10 categories</p>
+        </div>
+
+        <div className={styles.industryGrid}>
+          <IndustryCard
+            icon={ICONS.business}
+            title="Business & Services"
+            count="15 templates"
+            gradient="linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.ecommerce}
+            title="E-commerce"
+            count="20 templates"
+            gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.personal}
+            title="Personal Brands"
+            count="12 templates"
+            gradient="linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.restaurants}
+            title="Restaurants & Delivery"
+            count="10 templates"
+            gradient="linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.fashion}
+            title="Medicine & Beauty"
+            count="14 templates"
+            gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.construction}
+            title="Construction & Real Estate"
+            count="11 templates"
+            gradient="linear-gradient(135deg, #6B7280 0%, #4B5563 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.education}
+            title="Education"
+            count="13 templates"
+            gradient="linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.tech}
+            title="Tech / SaaS"
+            count="18 templates"
+            gradient="linear-gradient(135deg, #00D4D4 0%, #00A8A8 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.events}
+            title="Events"
+            count="9 templates"
+            gradient="linear-gradient(135deg, #9B5FFF 0%, #7B3FFF 100%)"
+          />
+          <IndustryCard
+            icon={ICONS.sports}
+            title="Fitness & Sports"
+            count="10 templates"
+            gradient="linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)"
+          />
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
@@ -263,6 +335,20 @@ function FeatureCardNew({ icon, title, text, gradient }: { icon: string, title: 
   );
 }
 
+function IndustryCard({ icon, title, count, gradient }: { icon: string, title: string, count: string, gradient: string }) {
+  return (
+    <div className={styles.industryCard}>
+      <div className={styles.industryIconBox} style={{ background: gradient }}>
+        <div className={styles.gradientOverlay} />
+        <Image src={icon} width={28} height={28} alt="" style={{ position: 'relative', zIndex: 2 }} />
+      </div>
+      <div>
+        <h3 className={styles.industryTitle}>{title}</h3>
+        <p className={styles.industryCount}>{count}</p>
+      </div>
+    </div>
+  );
+}
 
 function PricingCard({ title, price, buyout, features, featured }: { title: string, price: string, buyout: string, features: string[], featured?: boolean }) {
   return (

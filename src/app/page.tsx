@@ -32,28 +32,30 @@ const ICONS = {
 export default function Home() {
   return (
     <main className={styles.main}>
-      {/* Background Effects */}
-      <div className={styles.liquidBackground} style={{ zIndex: 0 }}>
-        {/* We keep the liquid blobs for underlying ambiance, but overlay the 3D effect or replace it? 
-            User asked to "set animation on background... leave everything as is only add animation".
-            So we will overlay the Canvas on top of the dark background but behind content. 
-        */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'auto' }}>
-          <Antigravity
-            color="#6c136c"
-            count={150}
-            magnetRadius={31}
-            ringRadius={16}
-            waveSpeed={1.9}
-            waveAmplitude={1}
-            fieldStrength={2}
-            particleSize={1}
-            autoAnimate={true}
-          />
-        </div>
+      {/* Background Effects - Fixed full-screen canvas */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        zIndex: 1
+      }}>
+        <Antigravity
+          color="#6c136c"
+          count={150}
+          magnetRadius={31}
+          ringRadius={16}
+          waveSpeed={1.9}
+          waveAmplitude={1}
+          fieldStrength={2}
+          particleSize={1}
+          autoAnimate={true}
+        />
+      </div>
 
-        {/* Original Blobs - kept for depth if needed, or can be removed if they clash. 
-            Let's keep them with lower opacity to blend. */}
+      {/* Original gradient blobs for depth */}
+      <div className={styles.liquidBackground}>
         <div className={`${styles.blob} ${styles.blobPriority}`} style={{ opacity: 0.3 }} />
         <div className={`${styles.blob} ${styles.blobSecondary}`} style={{ opacity: 0.2 }} />
       </div>

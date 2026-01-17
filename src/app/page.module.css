@@ -40,6 +40,14 @@
     flex-direction: column;
     align-items: center;
     z-index: 10;
+    pointer-events: none;
+    /* Allow mouse to pass through to canvas */
+}
+
+/* Re-enable pointer events for interactive elements */
+.hero button,
+.hero a {
+    pointer-events: auto;
 }
 
 /* Background Effects */
@@ -139,6 +147,11 @@
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    pointer-events: none;
+}
+
+.section * {
+    pointer-events: auto;
 }
 
 .sectionHeader {

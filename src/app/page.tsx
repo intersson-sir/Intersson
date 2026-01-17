@@ -352,6 +352,130 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Custom Development Section */}
+      <section className={styles.section} style={{ position: 'relative', paddingTop: '120px', paddingBottom: '120px' }}>
+        {/* Background gradient effect */}
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(212,46,198,0.15) 0%, rgba(92,36,255,0.1) 35%, rgba(0,0,0,0) 70%)',
+          filter: 'blur(100px)',
+          opacity: 0.4,
+          borderRadius: '50%',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.tag}>Beyond Templates</div>
+            <h2 className={styles.title} style={{ fontSize: '56px', maxWidth: '800px', margin: '0 auto 24px' }}>
+              Custom Development for Any IT Challenge
+            </h2>
+            <p className={styles.subtitle} style={{ maxWidth: '700px', fontSize: '18px' }}>
+              Need something more complex? We build custom web applications, mobile apps,
+              SaaS platforms, and enterprise solutions from scratch. No limits, no compromises.
+            </p>
+          </div>
+
+          <div className={styles.customDevGrid}>
+            <div className={styles.customDevCard}>
+              <div className={styles.customDevIconLarge} style={{ background: 'linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </div>
+              <h3 className={styles.customDevTitle}>Web Applications</h3>
+              <p className={styles.customDevText}>
+                Complex dashboards, admin panels, CRM systems, booking platforms,
+                and any custom web solution your business needs.
+              </p>
+              <ul className={styles.customDevList}>
+                <li>React, Next.js, Vue.js</li>
+                <li>Node.js, Python, PHP</li>
+                <li>Real-time features</li>
+                <li>API integrations</li>
+              </ul>
+            </div>
+
+            <div className={styles.customDevCard}>
+              <div className={styles.customDevIconLarge} style={{ background: 'linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" />
+                  <path d="M12 18h.01" />
+                </svg>
+              </div>
+              <h3 className={styles.customDevTitle}>Mobile Apps</h3>
+              <p className={styles.customDevText}>
+                Native iOS and Android apps, or cross-platform solutions
+                that work seamlessly on all devices.
+              </p>
+              <ul className={styles.customDevList}>
+                <li>React Native, Flutter</li>
+                <li>iOS & Android native</li>
+                <li>Push notifications</li>
+                <li>Offline functionality</li>
+              </ul>
+            </div>
+
+            <div className={styles.customDevCard}>
+              <div className={styles.customDevIconLarge} style={{ background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <h3 className={styles.customDevTitle}>SaaS Platforms</h3>
+              <p className={styles.customDevText}>
+                Multi-tenant applications, subscription management,
+                payment processing, and scalable cloud infrastructure.
+              </p>
+              <ul className={styles.customDevList}>
+                <li>Stripe, PayPal integration</li>
+                <li>User management</li>
+                <li>Analytics & reporting</li>
+                <li>Auto-scaling infrastructure</li>
+              </ul>
+            </div>
+
+            <div className={styles.customDevCard}>
+              <div className={styles.customDevIconLarge} style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <h3 className={styles.customDevTitle}>Enterprise Solutions</h3>
+              <p className={styles.customDevText}>
+                Large-scale systems, microservices architecture,
+                legacy system modernization, and enterprise integrations.
+              </p>
+              <ul className={styles.customDevList}>
+                <li>Microservices architecture</li>
+                <li>Cloud migration (AWS, Azure)</li>
+                <li>DevOps & CI/CD</li>
+                <li>Security & compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '60px' }}>
+            <button className={styles.primaryButton} style={{ fontSize: '18px', padding: '16px 48px' }}>
+              Discuss Your Project →
+            </button>
+            <p style={{ marginTop: '16px', color: '#99A1AF', fontSize: '14px' }}>
+              Free consultation • No commitment required
+            </p>
+          </div>
+        </div>
+      </section>
+
       <footer style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '40px 20px', textAlign: 'center', color: '#666', fontSize: '12px' }}>
         <p>© 2026 Intersson. All rights reserved.</p>
       </footer>

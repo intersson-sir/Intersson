@@ -272,6 +272,83 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* Custom Development Section */
+.customDevGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+}
+
+.customDevCard {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.customDevCard:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.customDevIconLarge {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.customDevIconLarge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.customDevTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.customDevText {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.customDevList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.customDevList li {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.customDevList li:first-child {
+    border-top: none;
+}
+
+
 
 .grid {
     display: grid;
@@ -506,6 +583,7 @@
     .grid,
     .featuresGrid,
     .industryGrid,
+    .customDevGrid,
     .servicesGrid,
     .pricingGrid {
         grid-template-columns: 1fr;

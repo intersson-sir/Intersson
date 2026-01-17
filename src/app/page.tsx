@@ -38,14 +38,16 @@ export default function Home() {
             User asked to "set animation on background... leave everything as is only add animation".
             So we will overlay the Canvas on top of the dark background but behind content. 
         */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, pointerEvents: 'auto' }}>
           <Antigravity
             color="#6c136c"
             count={150}
-            magnetRadius={15}
-            ringRadius={15}
+            magnetRadius={31}
+            ringRadius={16}
+            waveSpeed={1.9}
+            waveAmplitude={1}
             fieldStrength={2}
-            particleSize={3}
+            particleSize={1}
             autoAnimate={true}
           />
         </div>

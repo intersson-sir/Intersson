@@ -359,6 +359,23 @@
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.mostPopularBadge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(92.24deg, #FF3BFF 0%, #5C24FF 100%);
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    z-index: 10;
 }
 
 .pricingCardTitle {

@@ -297,9 +297,58 @@ export default function Home() {
         </div>
 
         <div className={styles.pricingGrid}>
-          <PricingCard title="Starter" price="100" buyout="1,500" features={['All UI Designs', 'Basic Template Customization', 'Hosting Included', 'SSL Certificate']} />
-          <PricingCard title="Professional" price="250" buyout="3,000" features={['All UI Designs', 'Advanced Customization', 'Priority Support', 'Hosting & SSL', 'Google Analytics']} featured={true} />
-          <PricingCard title="Enterprise" price="500" buyout="6,000" features={['Custom Design', 'Full Code Access', '24/7 Priority Support', 'Dedicated Manager', 'Custom Functionality']} />
+          <PricingCard
+            title="Starter"
+            price="100"
+            buyout="1,500"
+            features={[
+              'Up to 2 pages',
+              'Basic template customization',
+              'Mobile responsive',
+              'SSL certificate included',
+              'Monthly content updates (2)',
+              'Email support',
+              'Hosting included'
+            ]}
+          />
+          <PricingCard
+            title="Professional"
+            price="250"
+            buyout="3,500"
+            features={[
+              'Up to 5 pages',
+              'Advanced customization',
+              'Mobile responsive',
+              'SSL certificate included',
+              'Weekly content updates (8)',
+              'Priority email support',
+              'Hosting included',
+              'Contact forms',
+              'Basic SEO optimization',
+              'Google Analytics'
+            ]}
+            featured={true}
+          />
+          <PricingCard
+            title="Enterprise"
+            price="500"
+            buyout="6,500"
+            features={[
+              'Up to 10 pages',
+              'Full custom design',
+              'Mobile responsive',
+              'SSL certificate included',
+              'Unlimited content updates',
+              '24/7 priority support',
+              'Premium hosting',
+              'Advanced forms',
+              'Full SEO optimization',
+              'Google Analytics',
+              'E-commerce integration',
+              'Custom functionality',
+              'Performance optimization'
+            ]}
+          />
         </div>
       </section>
 
@@ -352,13 +401,26 @@ function IndustryCard({ icon, title, count, gradient }: { icon: string, title: s
 
 function PricingCard({ title, price, buyout, features, featured }: { title: string, price: string, buyout: string, features: string[], featured?: boolean }) {
   return (
-    <div className={styles.pricingCardNew} style={featured ? { borderColor: '#D42EC6', boxShadow: '0 0 40px rgba(212,46,198,0.1)' } : {}}>
+    <div className={styles.pricingCardNew} style={featured ? {
+      borderColor: '#D42EC6',
+      boxShadow: '0 0 40px rgba(212,46,198,0.1)',
+      background: 'radial-gradient(100% 100% at 50% 0%, rgba(30, 20, 50, 0.8) 0%, rgba(10, 10, 10, 0.8) 100%)'
+    } : {}}>
+      {featured && (
+        <div className={styles.mostPopularBadge}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginRight: '6px' }}>
+            <path d="M8 1L10 6H15L11 9L13 14L8 11L3 14L5 9L1 6H6L8 1Z" fill="white" />
+          </svg>
+          Most Popular
+        </div>
+      )}
+
       <div style={{ marginBottom: '32px' }}>
         <h3 className={styles.pricingCardTitle}>{title}</h3>
         <p className={styles.pricingCardSubtitle}>
           {title === 'Starter' && 'Perfect for small businesses just getting started'}
           {title === 'Professional' && 'Ideal for growing businesses with more needs'}
-          {title === 'Enterprise' && 'For established businesses requiring full control'}
+          {title === 'Enterprise' && 'For established businesses needing full features'}
         </p>
       </div>
 

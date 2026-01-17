@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import Antigravity from '@/components/Antigravity';
+import Navbar from '@/components/Navbar';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -62,33 +63,7 @@ export default function Home() {
       </div>
 
       {/* Navbar */}
-      <nav style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '24px 40px',
-        position: 'relative',
-        zIndex: 20
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '20px' }}>
-          <div style={{ width: 24, height: 24, background: 'linear-gradient(135deg, #FF3BFF, #5C24FF)', borderRadius: 6 }}></div>
-          INTERSSON
-        </div>
-        <div style={{ display: 'flex', gap: '32px', fontSize: '14px', color: '#99A1AF' }}>
-          <a href="#" style={{ color: 'white', textDecoration: 'none' }}>Features</a>
-          <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Categories</a>
-          <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Pricing</a>
-        </div>
-        <button style={{
-          background: 'rgba(255,255,255,0.1)',
-          border: '1px solid rgba(255,255,255,0.1)',
-          padding: '8px 16px',
-          borderRadius: '99px',
-          color: 'white',
-          fontSize: '14px',
-          cursor: 'pointer'
-        }}>Client Portal</button>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className={styles.hero}>

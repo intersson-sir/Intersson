@@ -288,6 +288,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trusted Companies Section */}
+      <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden' }}>
+        <div className={styles.sectionHeader} style={{ marginBottom: '60px' }}>
+          <div className={styles.tag}>Trusted Worldwide</div>
+          <h2 className={styles.title} style={{ fontSize: '48px' }}>Companies That Trust Us</h2>
+        </div>
+
+        <div className={styles.trustedCompaniesWrapper}>
+          <div className={styles.trustedCompaniesTrack}>
+            {/* First set of companies */}
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>TechCorp</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>StartupHub</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>CloudSync</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>DataFlow</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>FinanceX</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>MediCare+</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>EduLearn</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>ShopEasy</div>
+            </div>
+
+            {/* Duplicate set for seamless loop */}
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>TechCorp</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>StartupHub</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>CloudSync</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>DataFlow</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>FinanceX</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>MediCare+</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>EduLearn</div>
+            </div>
+            <div className={styles.companyCard}>
+              <div className={styles.companyLogo}>ShopEasy</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className={styles.section}>
         <div className={styles.sectionHeader}>

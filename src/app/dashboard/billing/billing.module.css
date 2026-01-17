@@ -1,0 +1,283 @@
+.currentPlanCard {
+    background: radial-gradient(136.6% 145.42% at -3.37% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.planHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.planTitle {
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.planSubtitle {
+    color: #99A1AF;
+    font-size: 14px;
+}
+
+.changePlanButton {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.changePlanButton:hover {
+    background: #E5E7EB;
+}
+
+.planDetailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.planDetailBox {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.detailLabel {
+    color: #99A1AF;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.detailValue {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.buyoutCard {
+    background: linear-gradient(180deg, rgba(234, 179, 8, 0.1) 0%, rgba(234, 179, 8, 0.02) 100%);
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.buyoutTitle {
+    color: #FBBF24;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.buyoutText {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.buyoutList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.buyoutItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.buyoutItem::before {
+    content: "•";
+    color: #FBBF24;
+}
+
+.buyoutButton {
+    width: 100%;
+    background: linear-gradient(90deg, #F59E0B 0%, #D97706 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.buyoutButton:hover {
+    transform: translateY(-2px);
+}
+
+.paymentMethodCard {
+    background: #0F0F10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardRow {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.cardInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cardIcon {
+    width: 48px;
+    height: 32px;
+    background: #3B82F6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.cardNumber {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.cardExpiry {
+    color: #99A1AF;
+    font-size: 13px;
+}
+
+.updateButton {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.invoiceList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.invoiceItem {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+}
+
+.invoiceItem:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.invoiceId {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.invoiceDate {
+    color: #99A1AF;
+    font-size: 12px;
+}
+
+.invoiceAmount {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    text-align: right;
+}
+
+.downloadIcon {
+    color: #99A1AF;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.downloadIcon:hover {
+    color: white;
+}
+
+.subscriptionStats {
+    background: #0F0F10;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.statRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 13px;
+}
+
+.statRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.statRow:first-of-type {
+    padding-top: 0;
+}
+
+.statLabel {
+    color: #99A1AF;
+}
+
+.statValue {
+    color: white;
+    font-weight: 500;
+}

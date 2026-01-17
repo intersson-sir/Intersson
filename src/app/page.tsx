@@ -352,22 +352,40 @@ function IndustryCard({ icon, title, count, gradient }: { icon: string, title: s
 
 function PricingCard({ title, price, buyout, features, featured }: { title: string, price: string, buyout: string, features: string[], featured?: boolean }) {
   return (
-    <div className={styles.pricingCard} style={featured ? { borderColor: '#D42EC6', boxShadow: '0 0 40px rgba(212,46,198,0.1)' } : {}}>
-      <h3 className={styles.cardTitle}>{title}</h3>
-      <div className={styles.pricingPrice}>
-        ${price}<span style={{ fontSize: '16px', color: '#666', fontWeight: 400 }}>/month</span>
+    <div className={styles.pricingCardNew} style={featured ? { borderColor: '#D42EC6', boxShadow: '0 0 40px rgba(212,46,198,0.1)' } : {}}>
+      <div style={{ marginBottom: '32px' }}>
+        <h3 className={styles.pricingCardTitle}>{title}</h3>
+        <p className={styles.pricingCardSubtitle}>
+          {title === 'Starter' && 'Perfect for small businesses just getting started'}
+          {title === 'Professional' && 'Ideal for growing businesses with more needs'}
+          {title === 'Enterprise' && 'For established businesses requiring full control'}
+        </p>
       </div>
-      <div style={{ color: '#4ADE80', fontSize: '14px', marginBottom: '24px' }}>
-        Buyout: ${buyout}
+
+      <div style={{ marginBottom: '24px' }}>
+        <div className={styles.pricingPriceNew}>
+          ${price}<span className={styles.pricingPeriodNew}>/month</span>
+        </div>
+        <div className={styles.buyoutTag}>
+          Buyout: ${buyout}
+        </div>
       </div>
-      <ul className={styles.pricingList}>
+
+      <ul className={styles.pricingListNew}>
         {features.map((f, i) => (
-          <li key={i} className={styles.pricingItem}>
-            <span className={styles.checkIcon}>✓</span> {f}
+          <li key={i} className={styles.pricingItemNew}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
+              <circle cx="10" cy="10" r="10" fill="#10B981" />
+              <path d="M6 10L9 13L14 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>{f}</span>
           </li>
         ))}
       </ul>
-      <button className={styles.primaryButton} style={{ width: '100%', background: featured ? undefined : 'rgba(255,255,255,0.1)' }}>
+
+      <button className={styles.pricingButton} style={featured ? {
+        background: 'linear-gradient(92.24deg, #FF3BFF 0%, #5C24FF 100%)'
+      } : {}}>
         Get Started
       </button>
     </div>

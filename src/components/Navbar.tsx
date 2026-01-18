@@ -1,51 +1,78 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import LoginModal from './LoginModal';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Prevent scrolling when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => { document.body.style.overflow = 'unset'; };
+    }, [isMobileMenuOpen]);
+
+    const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
     return (
         <>
-            <nav style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '24px 40px',
-                position: 'relative',
-                zIndex: 20
-            }}>
-                <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '20px' }}>
-                        <div style={{ width: 24, height: 24, background: 'linear-gradient(135deg, #FF3BFF, #5C24FF)', borderRadius: 6 }}></div>
-                        INTERSSON
-                    </div>
+            <nav className={styles.navbar}>
+                <Link href="/" className={styles.logo}>
+                    <div className={styles.logoIcon}></div>
+                    INTERSSON
                 </Link>
-                <div style={{ display: 'flex', gap: '32px', fontSize: '14px', color: '#99A1AF' }}>
-                    <a href="#" style={{ color: 'white', textDecoration: 'none' }}>Features</a>
-                    <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Categories</a>
-                    <a href="#" style={{ color: '#99A1AF', textDecoration: 'none' }}>Pricing</a>
+
+                {/* Desktop Menu */}
+                <div className={styles.navLinks}>
+                    <Link href="#features" className={styles.activeLink}>Features</Link>
+                    <Link href="#categories" className={styles.navLink}>Categories</Link>
+                    <Link href="#pricing" className={styles.navLink}>Pricing</Link>
                 </div>
+
                 <button
                     onClick={() => setIsLoginOpen(true)}
-                    style={{
-                        background: 'rgba(255,255,255,0.1)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        padding: '8px 16px',
-                        borderRadius: '99px',
-                        color: 'white',
-                        fontSize: '14px',
-                        cursor: 'pointer',
-                        transition: 'background 0.2s'
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
-                    onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                    className={styles.clientPortalBtn}
                 >
                     Client Portal
                 </button>
+
+                {/* Burger Button */}
+                <button
+                    className={styles.burgerBtn}
+                    onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                >
+                    <div className={styles.burgerLine} style={{ transform: isMobileMenuOpen ? 'rotate(45deg)' : 'rotate(0)' }} />
+                    <div className={styles.burgerLine} style={{ opacity: isMobileMenuOpen ? 0 : 1, transform: isMobileMenuOpen ? 'translateX(20px)' : 'translateX(0)' }} />
+                    <div className={styles.burgerLine} style={{ transform: isMobileMenuOpen ? 'rotate(-45deg)' : 'rotate(0)' }} />
+                </button>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+                <div className={styles.mobileNavLinks}>
+                    <Link href="#features" className={styles.mobileNavLink} onClick={toggleMenu}>Features</Link>
+                    <Link href="#categories" className={styles.mobileNavLink} onClick={toggleMenu}>Categories</Link>
+                    <Link href="#pricing" className={styles.mobileNavLink} onClick={toggleMenu}>Pricing</Link>
+                    <button
+                        onClick={() => {
+                            setIsLoginOpen(true);
+                            toggleMenu();
+                        }}
+                        className={styles.mobileNavLink}
+                        style={{ background: 'none', border: 'none', fontSize: 'inherit', fontWeight: 'inherit', cursor: 'pointer' }}
+                    >
+                        Client Portal
+                    </button>
+                </div>
+            </div>
 
             <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
         </>

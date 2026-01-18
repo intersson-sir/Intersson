@@ -282,7 +282,7 @@ export default function Home() {
       <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden' }}>
         <div className={styles.sectionHeader} style={{ marginBottom: '60px' }}>
           <div className={styles.tag}>Trusted Worldwide</div>
-          <h2 className={styles.title} style={{ fontSize: '48px' }}>Companies That Trust Us</h2>
+          <h2 className={styles.title}>Companies That Trust Us</h2>
         </div>
 
         <div className={styles.trustedCompaniesWrapper}>

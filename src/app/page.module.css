@@ -144,6 +144,7 @@
 .section {
     padding: 80px 20px;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 10;
@@ -659,6 +660,11 @@
         font-size: 40px;
     }
 
+    .subtitle {
+        font-size: 16px;
+        padding: 0 16px;
+    }
+
     .grid,
     .featuresGrid,
     .industryGrid,
@@ -671,10 +677,72 @@
     .buttonGroup {
         flex-direction: column;
         width: 100%;
+        align-items: center;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
     }
 
     .statsRow {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 16px;
+    }
+
+    .statCard {
+        flex: 1 1 120px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 20px 40px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .subtitle {
+        margin-bottom: 32px;
+    }
+
+    .sectionHeader .title {
+        font-size: 32px !important;
+    }
+
+    .section {
+        padding: 40px 16px;
+    }
+
+    .featureCardNew,
+    .industryCard,
+    .pricingCardNew,
+    .customDevCard,
+    .serviceCard {
+        padding: 24px;
+    }
+
+    .serviceCard {
+        height: auto;
+        min-height: auto;
+    }
+
+    /* Industry grid specifically: 2 columns on mobile instead of 1 stack often looks better if items are small, 
+       but here they have text. Let's keep 1 column for neatness or maybe 2 small ones? 
+       The user wants "neat". 1 column list is safest/neatest. 
+    */
+    .industryGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricingPriceNew {
+        font-size: 36px;
     }
 }

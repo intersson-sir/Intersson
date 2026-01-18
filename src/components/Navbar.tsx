@@ -33,6 +33,7 @@ export default function Navbar() {
                 <div className={styles.navLinks}>
                     <Link href="#features" className={styles.activeLink}>Features</Link>
                     <Link href="#categories" className={styles.navLink}>Categories</Link>
+                    <Link href="/reviews" className={styles.navLink}>Reviews</Link>
                     <Link href="#pricing" className={styles.navLink}>Pricing</Link>
                 </div>
 
@@ -60,6 +61,7 @@ export default function Navbar() {
                 <div className={styles.mobileNavLinks}>
                     <Link href="#features" className={styles.mobileNavLink} onClick={toggleMenu}>Features</Link>
                     <Link href="#categories" className={styles.mobileNavLink} onClick={toggleMenu}>Categories</Link>
+                    <Link href="/reviews" className={styles.mobileNavLink} onClick={toggleMenu}>Reviews</Link>
                     <Link href="#pricing" className={styles.mobileNavLink} onClick={toggleMenu}>Pricing</Link>
                     <button
                         onClick={() => {

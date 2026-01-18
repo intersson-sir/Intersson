@@ -23,10 +23,13 @@
 }
 
 .logoIcon {
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #FF3BFF, #5C24FF);
-    border-radius: 6px;
+    width: 130px;
+    /* Adjusted width for the aspect ratio of 153x85 roughly */
+    height: 72px;
+    /* Adjusted height */
+    background: url('/logo.svg') no-repeat center center;
+    background-size: contain;
+    /* Removed gradient and radius as it is now an SVG image */
 }
 
 .navLinks {

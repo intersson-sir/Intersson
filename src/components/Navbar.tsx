@@ -26,7 +26,6 @@ export default function Navbar() {
             <nav className={styles.navbar}>
                 <Link href="/" className={styles.logo}>
                     <div className={styles.logoIcon}></div>
-                    INTERSSON
                 </Link>
 
                 {/* Desktop Menu */}

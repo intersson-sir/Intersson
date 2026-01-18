@@ -23,8 +23,8 @@
 }
 
 .logoIcon {
-    width: 200px;
-    height: 111px;
+    width: 120px;
+    height: 110px;
     background: url('/logo.svg') no-repeat center center;
     background-size: contain;
 }

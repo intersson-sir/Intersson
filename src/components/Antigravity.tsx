@@ -11,7 +11,7 @@ const AntigravityInner = ({
     waveSpeed = 0.4,
     waveAmplitude = 1,
     particleSize = 2,
-    lerpSpeed = 0.1,
+    lerpSpeed = 0.02,
     color = '#FF9FFC',
     autoAnimate = false,
     particleVariance = 1,
@@ -97,7 +97,7 @@ const AntigravityInner = ({
             destY = Math.cos(time * 0.5 * 2) * (v.height / 4);
         }
 
-        const smoothFactor = 0.05;
+        const smoothFactor = 0.02;
         virtualMouse.current.x += (destX - virtualMouse.current.x) * smoothFactor;
         virtualMouse.current.y += (destY - virtualMouse.current.y) * smoothFactor;
 
@@ -177,7 +177,11 @@ const AntigravityInner = ({
 
 const Antigravity = (props: any) => {
     return (
-        <Canvas camera={{ position: [0, 0, 50], fov: 35 }} style={{ pointerEvents: 'none' }}>
+        <Canvas
+            camera={{ position: [0, 0, 50], fov: 35 }}
+            style={{ pointerEvents: 'none' }}
+            eventSource={typeof document !== 'undefined' ? (document.body as HTMLElement) : undefined}
+        >
             <AntigravityInner {...props} />
         </Canvas>
     );

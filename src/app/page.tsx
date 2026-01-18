@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import styles from './page.module.css';
-import Antigravity from '@/components/Antigravity';
+
+import AntigravityWrapper from '@/components/AntigravityWrapper';
 import Navbar from '@/components/Navbar';
+import DiscussButton from '@/components/DiscussButton';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -41,9 +44,10 @@ export default function Home() {
         left: 0,
         width: '100%',
         height: '100vh',
-        zIndex: 1
+        zIndex: 1,
+        pointerEvents: 'none'
       }}>
-        <Antigravity
+        <AntigravityWrapper
           color="#6c136c"
           count={150}
           magnetRadius={31}
@@ -516,9 +520,7 @@ export default function Home() {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button className={styles.primaryButton} style={{ fontSize: '18px', padding: '16px 48px' }}>
-              Discuss Your Project →
-            </button>
+            <DiscussButton />
             <p style={{ marginTop: '16px', color: '#99A1AF', fontSize: '14px' }}>
               Free consultation • No commitment required
             </p>

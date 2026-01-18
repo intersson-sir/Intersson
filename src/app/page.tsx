@@ -550,7 +550,10 @@ function FeatureCard({ icon, title, text }: { icon: string, title: string, text:
 function FeatureCardNew({ icon, title, text, gradient }: { icon: string, title: string, text: string, gradient: string }) {
   return (
     <div className={styles.featureCardNew}>
-      <div className={styles.gradientIconBox} style={{ background: gradient }}>
+      <div
+        className={styles.gradientIconBox}
+        style={{ background: gradient }}
+      >
         <div className={styles.gradientOverlay} />
         <Image src={icon} width={32} height={32} alt="" style={{ position: 'relative', zIndex: 2 }} />
       </div>

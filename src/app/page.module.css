@@ -179,17 +179,38 @@
 }
 
 .featureCardNew {
-    background: rgba(20, 20, 20, 0.6);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     padding: 32px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.featureCardNew::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.featureCardNew:hover::before {
+    opacity: 1;
 }
 
 .featureCardNew:hover {
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .gradientIconBox {
@@ -203,6 +224,7 @@
     position: relative;
     overflow: hidden;
 }
+
 
 .gradientOverlay {
     position: absolute;
@@ -235,18 +257,38 @@
 }
 
 .industryCard {
-    background: rgba(20, 20, 20, 0.6);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 24px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.industryCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.industryCard:hover::before {
+    opacity: 1;
 }
 
 .industryCard:hover {
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .industryIconBox {
@@ -282,16 +324,35 @@
 }
 
 .customDevCard {
-    background: rgba(20, 20, 20, 0.6);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     padding: 40px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.customDevCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.customDevCard:hover::before {
+    opacity: 1;
 }
 
 .customDevCard:hover {
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-8px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }

@@ -23,13 +23,10 @@
 }
 
 .logoIcon {
-    width: 130px;
-    /* Adjusted width for the aspect ratio of 153x85 roughly */
-    height: 72px;
-    /* Adjusted height */
+    width: 200px;
+    height: 111px;
     background: url('/logo.svg') no-repeat center center;
     background-size: contain;
-    /* Removed gradient and radius as it is now an SVG image */
 }
 
 .navLinks {

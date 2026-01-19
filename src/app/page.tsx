@@ -71,7 +71,10 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.tag}>Beta Launch</div>
+        <div className={styles.heroBadge}>
+          <Image src="/assets/sparkle.svg" width={16} height={16} alt="" priority />
+          <span className={styles.heroBadgeText}>Launch Your Website in Days, Not Months</span>
+        </div>
         <h1 className={styles.title}>
           Professional Websites<br />
           Through Subscription

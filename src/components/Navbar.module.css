@@ -59,12 +59,6 @@
 }
 
 .activeLink {
-    color: #99A1AF;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.activeLink:hover {
     color: white;
 }
 

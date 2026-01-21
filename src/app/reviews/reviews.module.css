@@ -8,7 +8,7 @@
 }
 
 .hero {
-    padding: 60px 20px 40px;
+    padding: 120px 20px 60px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -39,11 +39,13 @@
     grid-auto-rows: auto;
     gap: 64px;
     max-width: 1200px;
-    margin: 40px auto 40px;
+    margin: 80px auto 40px;
+    /* Reduced bottom margin */
     padding: 0 20px;
     position: relative;
     z-index: 10;
     align-items: start;
+    /* Standard for grids with varying content height */
 }
 
 /* Review Card */

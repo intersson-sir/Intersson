@@ -245,7 +245,7 @@ export default function Home() {
           />
           <IndustryCard
             icon={ICONS.construction}
-            title="Real Estate"
+            title="Construction & Real Estate"
             count="11 templates"
             gradient="linear-gradient(135deg, #6B7280 0%, #4B5563 100%)"
             slug="construction-real-estate"
@@ -282,7 +282,7 @@ export default function Home() {
       </section>
 
       {/* Trusted Companies Section */}
-      <section className={styles.trustedSection}>
+      <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden' }}>
         <div className={styles.sectionHeader} style={{ marginBottom: '60px' }}>
           <div className={styles.tag}>Trusted Worldwide</div>
           <h2 className={styles.title}>Companies That Trust Us</h2>

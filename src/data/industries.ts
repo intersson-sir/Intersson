@@ -80,7 +80,7 @@ export const industries: Industry[] = [
     {
         id: 'construction',
         slug: 'construction-real-estate',
-        title: 'Real Estate',
+        title: 'Construction & Real Estate',
         description: 'Solid and professional templates for construction and agencies.',
         icon: '/assets/1a13567ccf7c5ffd91582b2a53463d17d3bc44c2.svg',
         gradient: 'linear-gradient(135deg, #6B7280 0%, #4B5563 100%)',

@@ -434,10 +434,26 @@
     border-top: none;
 }
 
-/* Trusted Companies Section */
+/* Trusted Companies Section - Full Width */
+.trustedSection {
+    padding: 60px 0 80px;
+    width: 100%;
+    max-width: none !important;
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.trustedSection * {
+    pointer-events: auto;
+}
+
 .trustedCompaniesWrapper {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
     overflow: hidden;
     padding: 20px 0;
 }

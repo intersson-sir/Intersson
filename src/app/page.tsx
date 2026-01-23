@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import AntigravityWrapper from '@/components/AntigravityWrapper';
 import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
+import FeaturesScroll from '@/components/FeaturesScroll';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -35,6 +36,51 @@ const ICONS = {
 };
 
 export default function Home() {
+  const features = [
+    {
+      icon: ICONS.payment,
+      title: "No Upfront Payment",
+      text: "Start with just a monthly subscription. No $1000-$3000 initial investment required.",
+      gradient: "linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)",
+      hue: 190
+    },
+    {
+      icon: ICONS.launch,
+      title: "Launch in 1-3 Days",
+      text: "Choose from ready-made templates and get your custom website live in days.",
+      gradient: "linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)",
+      hue: 300
+    },
+    {
+      icon: ICONS.buy,
+      title: "Buy Anytime",
+      text: "Purchase full ownership of your website (domain + files) whenever you're ready.",
+      gradient: "linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)",
+      hue: 30
+    },
+    {
+      icon: ICONS.management,
+      title: "Easy Content Management",
+      text: "Edit text and images through a simple dashboard. Request changes anytime.",
+      gradient: "linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)",
+      hue: 160
+    },
+    {
+      icon: ICONS.hosting,
+      title: "Hosting Included",
+      text: "We handle all hosting and maintenance while your subscription is active.",
+      gradient: "linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)",
+      hue: 0
+    },
+    {
+      icon: ICONS.support,
+      title: "24/7 Support",
+      text: "Get help whenever you need it. Technical support is included in all plans.",
+      gradient: "linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)",
+      hue: 230
+    }
+  ];
+
   return (
     <main className={styles.main}>
       {/* Background Effects - Fixed full-screen canvas */}
@@ -108,67 +154,14 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className={styles.section} style={{ position: 'relative' }}>
-        {/* Background blur effect */}
-        <div style={{
-          position: 'absolute',
-          top: '216px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '425px',
-          height: '425px',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(30,65,123,0.2) 35%, rgba(0,0,0,0) 70%)',
-          filter: 'blur(80px)',
-          opacity: 0.2,
-          borderRadius: '50%',
-          pointerEvents: 'none',
-          zIndex: 0
-        }} />
-
+      <section className={styles.section} style={{ position: 'relative', overflow: 'visible' }}>
         <div className={styles.sectionHeader} style={{ position: 'relative', zIndex: 1 }}>
           <div className={styles.tag}>Why Choose Us</div>
           <h2 className={styles.title} style={{ fontSize: '48px' }}>Built for Entrepreneurs</h2>
           <p className={styles.subtitle}>Everything you need to get your business online without breaking the bank</p>
         </div>
 
-        <div className={styles.featuresGrid} style={{ position: 'relative', zIndex: 1 }}>
-          <FeatureCardNew
-            icon={ICONS.payment}
-            title="No Upfront Payment"
-            text="Start with just a monthly subscription. No $1000-$3000 initial investment required."
-            gradient="linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)"
-          />
-          <FeatureCardNew
-            icon={ICONS.launch}
-            title="Launch in 1-3 Days"
-            text="Choose from ready-made templates and get your custom website live in days."
-            gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
-          />
-          <FeatureCardNew
-            icon={ICONS.buy}
-            title="Buy Anytime"
-            text="Purchase full ownership of your website (domain + files) whenever you're ready."
-            gradient="linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)"
-          />
-          <FeatureCardNew
-            icon={ICONS.management}
-            title="Easy Content Management"
-            text="Edit text and images through a simple dashboard. Request changes anytime."
-            gradient="linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)"
-          />
-          <FeatureCardNew
-            icon={ICONS.hosting}
-            title="Hosting Included"
-            text="We handle all hosting and maintenance while your subscription is active."
-            gradient="linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)"
-          />
-          <FeatureCardNew
-            icon={ICONS.support}
-            title="24/7 Support"
-            text="Get help whenever you need it. Technical support is included in all plans."
-            gradient="linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)"
-          />
-        </div>
+        <FeaturesScroll features={features} />
       </section>
 
       {/* Services Section */}
@@ -552,21 +545,6 @@ function FeatureCard({ icon, title, text }: { icon: string, title: string, text:
   );
 }
 
-function FeatureCardNew({ icon, title, text, gradient }: { icon: string, title: string, text: string, gradient: string }) {
-  return (
-    <div className={styles.featureCardNew}>
-      <div
-        className={styles.gradientIconBox}
-        style={{ background: gradient }}
-      >
-        <div className={styles.gradientOverlay} />
-        <Image src={icon} width={32} height={32} alt="" style={{ position: 'relative', zIndex: 2 }} />
-      </div>
-      <h3 className={styles.featureCardTitle}>{title}</h3>
-      <p className={styles.featureCardText}>{text}</p>
-    </div>
-  );
-}
 
 function IndustryCard({ icon, title, count, gradient, slug }: { icon: string, title: string, count: string, gradient: string, slug?: string }) {
   const content = (

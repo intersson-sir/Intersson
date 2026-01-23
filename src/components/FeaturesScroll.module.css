@@ -15,7 +15,7 @@
   position: relative;
   margin-left: calc(-50vw + 50%);
   --card-size: clamp(350px, 40vw, 450px);
-  --card-ar: 1.2 / 1;
+  --card-ar: 2.4 / 1;
   --x: 50%;
   --y: 50%;
   --spotlight: 50vmin;
@@ -99,17 +99,25 @@
   --border-size: calc(var(--border, 2) * 1px);
   --spotlight-size: calc(var(--card-size) * 1.2);
   --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
-  background-image: radial-gradient(
-    var(--spotlight-size) var(--spotlight-size) at
-    var(--x)
-    var(--y),
-    hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.12)), transparent
-  );
-  background-color: var(--backdrop, transparent);
-  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-image: 
+    radial-gradient(
+      var(--spotlight-size) var(--spotlight-size) at
+      var(--x)
+      var(--y),
+      hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.12)), transparent
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      hsl(var(--hue, 210) 95% 70% / 0.3), 
+      hsl(var(--hue, 210) 90% 60% / 0.2) 40%, 
+      hsl(var(--hue, 210) 85% 50% / 0.1) 60%,
+      transparent 75%
+    );
+  background-color: rgba(10, 10, 10, 0.4);
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size))), 100% 100%;
   background-position: 50% 50%;
-  background-attachment: fixed;
-  border: var(--border-size) solid var(--backup-border);
+  background-attachment: fixed, local;
+  border: var(--border-size) solid hsl(var(--hue, 210) 80% 50% / 0.3);
   position: relative;
   touch-action: none;
 }
@@ -139,9 +147,9 @@
     calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
     var(--x)
     var(--y),
-    hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 0.6)), transparent 100%
+    hsl(var(--hue, 210) 95% 60% / 0.8), transparent 100%
   );
-  filter: brightness(2);
+  filter: brightness(2.5);
 }
 
 /* This is the spotlight */
@@ -150,7 +158,7 @@
     calc(var(--spotlight-size) * 0.4) calc(var(--spotlight-size) * 0.4) at
     var(--x)
     var(--y),
-    hsl(0 100% 100% / var(--border-light-opacity, 0.8)), transparent 100%
+    hsl(var(--hue, 210) 100% 90% / 0.9), transparent 100%
   );
 }
 

@@ -20,7 +20,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .subtitle {
@@ -29,13 +29,13 @@
     color: var(--color-text-muted);
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto 32px;
 }
 
 /* Hero Section */
 .hero {
     position: relative;
-    padding: 80px 20px 60px;
+    padding: 60px 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,7 +89,7 @@
 .buttonGroup {
     display: flex;
     gap: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
 }
 
 .primaryButton {
@@ -201,7 +201,7 @@
     border-radius: 100px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: linear-gradient(90deg, rgba(43, 127, 255, 0.1) 0%, rgba(173, 70, 255, 0.1) 50%, rgba(246, 51, 154, 0.1) 100%);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     height: 36px;
     box-sizing: border-box;
 }

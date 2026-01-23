@@ -19,7 +19,7 @@ export default function FeaturesScroll({ features }: { features: FeatureCardProp
     const section = sectionRef.current;
     if (!section) return;
 
-    const articles = section.querySelectorAll('[data-glow]');
+    const articles = section.querySelectorAll(`.${styles.featureCard}`);
 
     const update = (e: MouseEvent | Touch) => {
       const x = e.clientX;
@@ -58,7 +58,7 @@ export default function FeaturesScroll({ features }: { features: FeatureCardProp
       <ul className={styles.featuresList}>
         {features.map((feature, index) => (
           <li key={index} className={styles.featureItem}>
-            <article data-glow className={styles.featureCard} style={{ '--hue': feature.hue } as React.CSSProperties}>
+            <article className={styles.featureCard} style={{ '--hue': feature.hue } as React.CSSProperties}>
               <div className={styles.cardHeader}>
                 <div
                   className={styles.iconBox}

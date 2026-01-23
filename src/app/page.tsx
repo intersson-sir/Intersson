@@ -240,7 +240,7 @@ export default function Home() {
           />
           <IndustryCard
             icon={ICONS.construction}
-            title="Construction & Real Estate"
+            title="Construction & RE"
             count="11 templates"
             gradient="linear-gradient(135deg, #6B7280 0%, #4B5563 100%)"
             slug="construction-real-estate"

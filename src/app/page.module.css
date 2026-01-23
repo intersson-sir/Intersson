@@ -312,6 +312,9 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
 }
 
 .industryCard::before {
@@ -354,6 +357,9 @@
     font-weight: 600;
     margin-bottom: 4px;
     color: #fff;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .industryCount {

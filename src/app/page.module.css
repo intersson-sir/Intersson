@@ -35,7 +35,7 @@
 /* Hero Section */
 .hero {
     position: relative;
-    padding: 60px 20px 60px;
+    padding: 100px 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;

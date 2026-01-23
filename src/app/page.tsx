@@ -85,7 +85,9 @@ export default function Home() {
         </p>
 
         <div className={styles.buttonGroup}>
-          <button className={styles.primaryButton}>Get Started →</button>
+          <button className={styles.primaryButton}>
+            <span className={styles.primaryButtonText}>Get Started →</span>
+          </button>
           <button className={styles.secondaryButton}>View Templates</button>
         </div>
 

@@ -59,7 +59,8 @@
 }
 
 .activeLink {
-    color: white;
+    color: #99A1AF;
+    text-decoration: none;
 }
 
 .clientPortalBtn {

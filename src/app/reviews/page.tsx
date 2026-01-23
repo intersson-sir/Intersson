@@ -150,7 +150,7 @@ export default function ReviewsPage() {
                     className={styles.button}
                     onClick={() => setIsModalOpen(true)}
                 >
-                    Leave a Review
+                    <span className={styles.buttonText}>Leave a Review</span>
                 </button>
             </div>
 

@@ -166,20 +166,25 @@
 }
 
 .button {
-    background: linear-gradient(92.24deg, #FF3BFF 0%, #5C24FF 100%);
-    padding: 16px 40px;
-    border-radius: 99px;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
-    border: none;
+    position: relative;
+    padding: 12px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(90deg, rgba(43, 127, 255, 0.1) 0%, rgba(173, 70, 255, 0.1) 50%, rgba(246, 51, 154, 0.1) 100%);
 }
 
-.button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(92, 36, 255, 0.4);
+.buttonText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    background: linear-gradient(90deg, rgb(142, 197, 255) 0%, rgb(218, 178, 255) 50%, rgb(253, 165, 213) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Quote Section */

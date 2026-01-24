@@ -123,8 +123,8 @@ export default function Home() {
           <span className={styles.heroBadgeText}>Launch Your Website in Days, Not Months</span>
         </div>
         <h1 className={styles.title}>
-          Professional Websites<br />
-          Through Subscription
+          <span className={styles.titleLine}>Professional Websites</span><br />
+          <span className={styles.titleLine}>Through Subscription</span>
         </h1>
         <p className={styles.subtitle}>
           Get a custom website for just $100-$500/month. No upfront costs.

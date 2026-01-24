@@ -45,18 +45,22 @@ export default function Navbar() {
 
                 {/* Burger Button */}
                 <button
-                    className={styles.burgerBtn}
+                    className={`${styles.burgerBtn} ${isMobileMenuOpen ? styles.burgerHidden : ''}`}
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
-                    <div className={styles.burgerLine} style={{ transform: isMobileMenuOpen ? 'rotate(45deg)' : 'rotate(0)' }} />
-                    <div className={styles.burgerLine} style={{ opacity: isMobileMenuOpen ? 0 : 1, transform: isMobileMenuOpen ? 'translateX(20px)' : 'translateX(0)' }} />
-                    <div className={styles.burgerLine} style={{ transform: isMobileMenuOpen ? 'rotate(-45deg)' : 'rotate(0)' }} />
+                    <div className={styles.burgerLine} />
+                    <div className={styles.burgerLine} />
+                    <div className={styles.burgerLine} />
                 </button>
             </nav>
 
             {/* Mobile Menu Overlay */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+                <button className={styles.closeBtn} onClick={toggleMenu} aria-label="Close menu">
+                    <div className={styles.closeLine} />
+                    <div className={styles.closeLine} />
+                </button>
                 <div className={styles.mobileNavLinks}>
                     <Link href="#features" className={styles.mobileNavLink} onClick={toggleMenu}>Features</Link>
                     <Link href="#categories" className={styles.mobileNavLink} onClick={toggleMenu}>Categories</Link>

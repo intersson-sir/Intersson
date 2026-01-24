@@ -87,30 +87,68 @@
     transform: translateY(-1px);
 }
 
-/* Burger Button */
-.burgerBtn {
-    display: none;
-    /* Hidden on desktop */
-    flex-direction: column;
-    justify-content: space-around;
+/* Close Button in Mobile Menu */
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
     width: 32px;
     height: 32px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeLine {
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background: white;
+}
+
+.closeLine:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.closeLine:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+/* Burger Button */
+.burgerBtn {
+    display: none;
+    /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
     z-index: 52;
     /* Above mobile menu */
+    transition: opacity 0.3s ease;
+}
+
+.burgerHidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .burgerLine {
-    width: 32px;
-    height: 2px;
+    width: 24px;
+    height: 1px;
     background: white;
     border-radius: 10px;
-    transition: all 0.3s linear;
+    transition: all 0.3s ease;
     position: relative;
-    transform-origin: 1px;
 }
 
 /* Mobile Menu Overlay */

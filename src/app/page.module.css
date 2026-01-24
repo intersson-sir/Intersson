@@ -900,7 +900,6 @@
     }
 
     .servicesGrid,
-    .pricingGrid,
     .customDevGrid {
         grid-template-columns: 1fr;
         width: 100%;
@@ -909,9 +908,33 @@
 
     .industryCard,
     .serviceCard,
-    .pricingCardNew,
     .customDevCard {
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    .pricingGrid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        width: calc(100% + 60px);
+        margin-left: -30px;
+        margin-right: -30px;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pricingGrid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricingCardNew {
+        flex: 0 0 320px;
+        width: 320px;
+        scroll-snap-align: center;
         box-sizing: border-box;
     }
 

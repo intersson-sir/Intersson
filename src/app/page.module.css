@@ -880,8 +880,12 @@
         padding: 40px 16px;
     }
 
+    .title {
+        font-size: 36px;
+    }
+
     .subtitle {
-        font-size: 15px;
+        font-size: 11px;
         line-height: 1.4;
     }
 

@@ -7,6 +7,7 @@ import AntigravityWrapper from '@/components/AntigravityWrapper';
 import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
 import FeaturesScroll from '@/components/FeaturesScroll';
+import CountUp from '@/components/CountUp';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -139,7 +140,9 @@ export default function Home() {
 
         <div className={styles.statsRow}>
           <div className={styles.statCard}>
-            <span className={styles.statValue}>500+</span>
+            <span className={styles.statValue}>
+              <CountUp to={500} duration={3} />+
+            </span>
             <span className={styles.statLabel}>Active Users</span>
           </div>
           <div className={styles.statCard}>
@@ -526,7 +529,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '40px 20px', textAlign: 'center', color: '#666', fontSize: '12px' }}>
+      <footer className={styles.footer}>
         <p>© 2026 Intersson. All rights reserved.</p>
       </footer>
     </main>

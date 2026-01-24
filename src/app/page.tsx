@@ -141,7 +141,7 @@ export default function Home() {
         <div className={styles.statsRow}>
           <div className={styles.statCard}>
             <span className={styles.statValue}>
-              <CountUp to={500} duration={3} />+
+              <CountUp to={500} duration={1.5} />+
             </span>
             <span className={styles.statLabel}>Active Users</span>
           </div>
@@ -150,7 +150,9 @@ export default function Home() {
             <span className={styles.statLabel}>Launch Time</span>
           </div>
           <div className={styles.statCard}>
-            <span className={styles.statValue}>$0</span>
+            <span className={styles.statValue}>
+              $<CountUp from={1000} to={0} duration={1.5} />
+            </span>
             <span className={styles.statLabel}>Upfront Cost</span>
           </div>
         </div>

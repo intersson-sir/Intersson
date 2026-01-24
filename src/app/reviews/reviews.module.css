@@ -386,3 +386,18 @@
         /* Line takes full width on mobile if stacked */
     }
 }
+
+@media (max-width: 430px) {
+    .hero {
+        padding: 100px 30px 40px;
+    }
+
+    .grid {
+        padding: 0 30px;
+        margin-top: 40px;
+    }
+
+    .quoteSection {
+        padding: 0 30px;
+    }
+}

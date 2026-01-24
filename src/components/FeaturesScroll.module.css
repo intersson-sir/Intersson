@@ -249,6 +249,8 @@
   .featuresList {
     gap: 2rem;
     mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+    padding-block: 2rem;
+    padding-inline: calc(50vw - (var(--card-size) * 0.5));
   }
   
   .featureCard {
@@ -261,5 +263,17 @@
   
   .cardText {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 430px) {
+  .featuresSection {
+    --card-size: calc(100vw - 60px);
+  }
+
+  .featuresList {
+    padding-inline: 30px;
+    gap: 10px;
+    mask: none;
   }
 }

@@ -1,3 +1,6 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -8,6 +11,7 @@ import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
 import FeaturesScroll from '@/components/FeaturesScroll';
 import CountUp from '@/components/CountUp';
+import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -37,6 +41,17 @@ const ICONS = {
 };
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 430);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const features = [
     {
       icon: ICONS.payment,
@@ -79,6 +94,79 @@ export default function Home() {
       text: "Get help whenever you need it. Technical support is included in all plans.",
       gradient: "linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)",
       hue: 230
+    }
+  ];
+
+  const industries = [
+    {
+      icon: ICONS.business,
+      title: "Business & Services",
+      count: "15 templates",
+      gradient: "linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)",
+      slug: "business-services"
+    },
+    {
+      icon: ICONS.ecommerce,
+      title: "E-commerce",
+      count: "20 templates",
+      gradient: "linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)",
+      slug: "ecommerce"
+    },
+    {
+      icon: ICONS.personal,
+      title: "Personal Brands",
+      count: "12 templates",
+      gradient: "linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)",
+      slug: "personal-brands"
+    },
+    {
+      icon: ICONS.restaurants,
+      title: "Restaurants & Delivery",
+      count: "10 templates",
+      gradient: "linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)",
+      slug: "restaurants-delivery"
+    },
+    {
+      icon: ICONS.fashion,
+      title: "Medicine & Beauty",
+      count: "14 templates",
+      gradient: "linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)",
+      slug: "medicine-beauty"
+    },
+    {
+      icon: ICONS.construction,
+      title: "Construction & RE",
+      count: "11 templates",
+      gradient: "linear-gradient(135deg, #6B7280 0%, #4B5563 100%)",
+      slug: "construction-real-estate"
+    },
+    {
+      icon: ICONS.education,
+      title: "Education",
+      count: "13 templates",
+      gradient: "linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)",
+      slug: "education"
+    },
+    {
+      icon: ICONS.tech,
+      title: "Tech / SaaS",
+      count: "18 templates",
+      gradient: "linear-gradient(135deg, #00D4D4 0%, #00A8A8 100%)",
+      slug: "tech-saas"
+    },
+    {
+      icon: ICONS.events,
+      title: "Events",
+      count: "9 templates",
+      gradient: "linear-gradient(135deg, #9B5FFF 0%, #7B3FFF 100%)",
+      slug: "events"
+    },
+    {
+      icon: ICONS.sports,
+      title: "Fitness & Sports",
+      count: "10 templates",
+      gradient: "linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)",
+      slug: "fitness-sports"
     }
   ];
 
@@ -207,78 +295,27 @@ export default function Home() {
           <p className={styles.subtitle}>Over 130+ professionally designed templates across 10 categories</p>
         </div>
 
-        <div className={styles.industryGrid}>
-          <IndustryCard
-            icon={ICONS.business}
-            title="Business & Services"
-            count="15 templates"
-            gradient="linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)"
-            slug="business-services"
-          />
-          <IndustryCard
-            icon={ICONS.ecommerce}
-            title="E-commerce"
-            count="20 templates"
-            gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
-            slug="ecommerce"
-          />
-          <IndustryCard
-            icon={ICONS.personal}
-            title="Personal Brands"
-            count="12 templates"
-            gradient="linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)"
-            slug="personal-brands"
-          />
-          <IndustryCard
-            icon={ICONS.restaurants}
-            title="Restaurants & Delivery"
-            count="10 templates"
-            gradient="linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)"
-            slug="restaurants-delivery"
-          />
-          <IndustryCard
-            icon={ICONS.fashion}
-            title="Medicine & Beauty"
-            count="14 templates"
-            gradient="linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)"
-            slug="medicine-beauty"
-          />
-          <IndustryCard
-            icon={ICONS.construction}
-            title="Construction & RE"
-            count="11 templates"
-            gradient="linear-gradient(135deg, #6B7280 0%, #4B5563 100%)"
-            slug="construction-real-estate"
-          />
-          <IndustryCard
-            icon={ICONS.education}
-            title="Education"
-            count="13 templates"
-            gradient="linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)"
-            slug="education"
-          />
-          <IndustryCard
-            icon={ICONS.tech}
-            title="Tech / SaaS"
-            count="18 templates"
-            gradient="linear-gradient(135deg, #00D4D4 0%, #00A8A8 100%)"
-            slug="tech-saas"
-          />
-          <IndustryCard
-            icon={ICONS.events}
-            title="Events"
-            count="9 templates"
-            gradient="linear-gradient(135deg, #9B5FFF 0%, #7B3FFF 100%)"
-            slug="events"
-          />
-          <IndustryCard
-            icon={ICONS.sports}
-            title="Fitness & Sports"
-            count="10 templates"
-            gradient="linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)"
-            slug="fitness-sports"
-          />
-        </div>
+        {isMobile ? (
+          <ScrollStack
+            itemDistance={20}
+            itemScale={0.05}
+            itemStackDistance={15}
+            stackPosition="15%"
+            useWindowScroll={true}
+          >
+            {industries.map((industry, index) => (
+              <ScrollStackItem key={index}>
+                <IndustryCard {...industry} />
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        ) : (
+          <div className={styles.industryGrid}>
+            {industries.map((industry, index) => (
+              <IndustryCard key={index} {...industry} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Trusted Companies Section */}

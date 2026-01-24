@@ -1,7 +1,7 @@
 import { industries } from '@/data/industries';
 import styles from './page.module.css';
 import Link from 'next/link';
-import Antigravity from '@/components/Antigravity';
+import LiquidEtherWrapper from '@/components/LiquidEtherWrapper';
 import { notFound } from 'next/navigation';
 
 export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,12 +23,14 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 height: '100vh',
                 zIndex: 1
             }}>
-                <Antigravity
-                    color="#6c136c"
-                    count={100}
-                    magnetRadius={30}
-                    ringRadius={20}
-                    autoAnimate={true}
+                <LiquidEtherWrapper
+                    colors={['#6c136c', '#FF9FFC', '#5227FF']}
+                    mouseForce={18}
+                    cursorSize={90}
+                    resolution={0.5}
+                    autoDemo={true}
+                    autoSpeed={0.45}
+                    autoIntensity={2.0}
                 />
             </div>
 

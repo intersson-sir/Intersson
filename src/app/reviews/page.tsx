@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './reviews.module.css';
-import AntigravityWrapper from '@/components/AntigravityWrapper';
+import LiquidEtherWrapper from '@/components/LiquidEtherWrapper';
 import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
 
@@ -102,16 +102,14 @@ export default function ReviewsPage() {
                 zIndex: 0,
                 pointerEvents: 'none'
             }}>
-                <AntigravityWrapper
-                    color="#6c136c"
-                    count={100}
-                    magnetRadius={20}
-                    ringRadius={15}
-                    waveSpeed={1.5}
-                    waveAmplitude={1}
-                    fieldStrength={2}
-                    particleSize={1}
-                    autoAnimate={true}
+                <LiquidEtherWrapper
+                    colors={['#6c136c', '#FF9FFC', '#5227FF']}
+                    mouseForce={15}
+                    cursorSize={80}
+                    resolution={0.5}
+                    autoDemo={true}
+                    autoSpeed={0.4}
+                    autoIntensity={2.0}
                 />
             </div>
 

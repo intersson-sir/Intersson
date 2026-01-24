@@ -6,7 +6,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import styles from './page.module.css';
 
-import AntigravityWrapper from '@/components/AntigravityWrapper';
+import LiquidEtherWrapper from '@/components/LiquidEtherWrapper';
 import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
 import FeaturesScroll from '@/components/FeaturesScroll';
@@ -182,16 +182,14 @@ export default function Home() {
         zIndex: 1,
         pointerEvents: 'none'
       }}>
-        <AntigravityWrapper
-          color="#6c136c"
-          count={150}
-          magnetRadius={31}
-          ringRadius={16}
-          waveSpeed={1.9}
-          waveAmplitude={1}
-          fieldStrength={2}
-          particleSize={1}
-          autoAnimate={true}
+        <LiquidEtherWrapper
+          colors={['#6c136c', '#FF9FFC', '#5227FF']}
+          mouseForce={20}
+          cursorSize={100}
+          resolution={0.5}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
         />
       </div>
 

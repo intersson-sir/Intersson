@@ -24,12 +24,11 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.navbar}>
-                <Link href="/" className={styles.logo}>
-                    <div className={styles.logoIcon}></div>
-                </Link>
-
                 {/* Desktop Menu */}
                 <div className={styles.navLinks}>
+                    <Link href="/" className={styles.logo}>
+                        INTERSSON
+                    </Link>
                     <Link href="#features" className={styles.activeLink}>Features</Link>
                     <Link href="#categories" className={styles.navLink}>Categories</Link>
                     <Link href="/reviews" className={styles.navLink}>Reviews</Link>

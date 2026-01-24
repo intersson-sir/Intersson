@@ -33,28 +33,10 @@
   --lightness: 70;
 }
 
+/* Section background blobs removed as they were bleeding over card edges */
 .featuresSection::after,
 .featuresSection::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: radial-gradient(hsl(var(--base, 0) 80% 50%), transparent);
-  filter: blur(100px);
-  width: calc(var(--card-size) * 1.5);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  opacity: 0.0875;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.featuresSection::after {
-  width: calc(var(--card-size) * 0.5);
-  opacity: 0.15;
-  z-index: 2;
-  transform: translate(-50%, -75%);
+  display: none;
 }
 
 .featuresList {

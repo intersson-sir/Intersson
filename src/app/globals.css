@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for fixed navbar when using anchor links */
+#categories,
+#pricing {
+  scroll-margin-top: 80px;
+}
+
 :root {
   --background: #000000;
   --foreground: #ffffff;

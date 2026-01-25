@@ -218,10 +218,10 @@ export default function Home() {
         </p>
 
         <div className={styles.buttonGroup}>
-          <button className={styles.primaryButton}>
+          <a href="#pricing" className={styles.primaryButton}>
             <span className={styles.primaryButtonText}>Get Started →</span>
-          </button>
-          <button className={styles.secondaryButton}>View Templates</button>
+          </a>
+          <a href="#categories" className={styles.secondaryButton}>View Templates</a>
         </div>
 
         <div className={styles.statsRow}>
@@ -286,7 +286,7 @@ export default function Home() {
       </section>
 
       {/* Choose Your Industry Section */}
-      <section className={styles.section}>
+      <section id="categories" className={styles.section}>
         <div className={styles.sectionHeader}>
           <div className={styles.tag}>Template Categories</div>
           <h2 className={styles.title} style={{ fontSize: '48px' }}>Choose Your Industry</h2>
@@ -317,7 +317,7 @@ export default function Home() {
       </section>
 
       {/* Trusted Companies Section */}
-      <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden' }}>
+      <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden', zIndex: 'auto' }}>
         <div className={styles.sectionHeader} style={{ marginBottom: '60px' }}>
           <div className={styles.tag}>Trusted Worldwide</div>
           <h2 className={styles.title}>Companies That Trust Us</h2>
@@ -381,7 +381,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className={styles.section}>
+      <section id="pricing" className={styles.section}>
         <div className={styles.sectionHeader}>
           <div className={styles.tag}>Simple Pricing</div>
           <h2 className={styles.title} style={{ fontSize: '48px' }}>Choose Your Plan</h2>

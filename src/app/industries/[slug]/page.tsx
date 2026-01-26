@@ -51,27 +51,35 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                         industry.templates.map((template) => (
                             <div key={template.id} className={styles.templateCard}>
                                 <div className={styles.previewArea}>
-                                    {template.preview_image_url ? (
-                                        <img 
-                                            src={template.preview_image_url} 
-                                            alt={template.name}
-                                            className={styles.previewImage}
-                                        />
-                                    ) : (
-                                        <svg
-                                            className={styles.pdfIcon}
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={1.5}
-                                                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                                    <a
+                                        href={template.pdf_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.imageLink}
+                                        style={{ display: 'block', width: '100%', height: '100%' }}
+                                    >
+                                        {template.preview_image_url ? (
+                                            <img
+                                                src={template.preview_image_url}
+                                                alt={template.name}
+                                                className={styles.previewImage}
                                             />
-                                        </svg>
-                                    )}
+                                        ) : (
+                                            <svg
+                                                className={styles.pdfIcon}
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={1.5}
+                                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                                                />
+                                            </svg>
+                                        )}
+                                    </a>
                                 </div>
                                 <div className={styles.cardContent}>
                                     <h3 className={styles.templateName}>{template.name}</h3>

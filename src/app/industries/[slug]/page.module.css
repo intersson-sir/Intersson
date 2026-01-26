@@ -8,7 +8,7 @@
 
 .content {
     position: relative;
-    z-index: 10;
+    z-index: 100;
     max-width: 1200px;
     margin: 0 auto;
     padding: 120px 24px 60px;
@@ -63,7 +63,10 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    z-index: 101;
+    cursor: default;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .templateCard:hover {
@@ -80,6 +83,26 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+
+.imageLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.previewImage,
+.pdfIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.imageLink:hover .previewImage {
+    transform: scale(1.05);
 }
 
 .pdfIcon {

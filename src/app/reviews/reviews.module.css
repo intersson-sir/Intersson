@@ -357,6 +357,50 @@
     opacity: 0.9;
 }
 
+.successView {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.successIcon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(74, 222, 128, 0.4);
+}
+
+.successTitle {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.successMessage {
+    color: #99A1AF;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .grid {

@@ -111,6 +111,13 @@ class Review(models.Model):
         verbose_name="Gradient End Color",
         help_text="Hex color code (e.g., #2A0E6E)"
     )
+    logo = models.ImageField(
+        upload_to='reviews/logos/',
+        blank=True,
+        null=True,
+        verbose_name="Company Logo",
+        help_text="Optional company logo"
+    )
     display_order = models.IntegerField(
         default=0,
         verbose_name="Display Order",

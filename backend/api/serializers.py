@@ -92,6 +92,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             'role',
             'service',
             'review_text',
+            'logo',
             'color_start',
             'color_end',
             'submitted_at'
@@ -116,6 +117,7 @@ class ReviewListSerializer(serializers.ModelSerializer):
             'role',
             'service',
             'review_text',
+            'logo',
             'color_start',
             'color_end',
         ]

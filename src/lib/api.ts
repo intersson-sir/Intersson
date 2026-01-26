@@ -30,6 +30,7 @@ export interface Review {
     role: string;
     service: string;
     review_text: string;
+    logo?: string | File | null;
     color_start?: string;
     color_end?: string;
     submitted_at?: string;
@@ -43,12 +44,17 @@ export async function getIndustries(): Promise<Industry[]> {
         const response = await fetch(`${API_BASE_URL}/industries/`, {
             cache: 'no-store',
         });
-        
+
         if (!response.ok) {
             throw new Error('Failed to fetch industries');
         }
-        
-        return await response.json();
+
+        const data = await response.json();
+        // Handle paginated response
+        if (data.results && Array.isArray(data.results)) {
+            return data.results;
+        }
+        return Array.isArray(data) ? data : [];
     } catch (error) {
         console.error('Error fetching industries:', error);
         return [];
@@ -63,11 +69,11 @@ export async function getIndustryBySlug(slug: string): Promise<Industry | null> 
         const response = await fetch(`${API_BASE_URL}/industries/${slug}/`, {
             cache: 'no-store',
         });
-        
+
         if (!response.ok) {
             return null;
         }
-        
+
         return await response.json();
     } catch (error) {
         console.error('Error fetching industry:', error);
@@ -83,12 +89,17 @@ export async function getReviews(): Promise<Review[]> {
         const response = await fetch(`${API_BASE_URL}/reviews/`, {
             cache: 'no-store',
         });
-        
+
         if (!response.ok) {
             throw new Error('Failed to fetch reviews');
         }
-        
-        return await response.json();
+
+        const data = await response.json();
+        // Handle paginated response
+        if (data.results && Array.isArray(data.results)) {
+            return data.results;
+        }
+        return Array.isArray(data) ? data : [];
     } catch (error) {
         console.error('Error fetching reviews:', error);
         return [];
@@ -100,27 +111,31 @@ export async function getReviews(): Promise<Review[]> {
  */
 export async function submitReview(review: Review): Promise<{ success: boolean; message: string }> {
     try {
+        const formData = new FormData();
+        formData.append('name', review.name);
+        formData.append('company', review.company);
+        formData.append('role', review.role);
+        formData.append('service', review.service);
+        formData.append('review_text', review.review_text);
+
+        if (review.logo) {
+            formData.append('logo', review.logo);
+        }
+
+        formData.append('color_start', review.color_start || '#441AAD');
+        formData.append('color_end', review.color_end || '#2A0E6E');
+
         const response = await fetch(`${API_BASE_URL}/reviews/`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: review.name,
-                company: review.company,
-                role: review.role,
-                service: review.service,
-                review_text: review.review_text,
-                color_start: review.color_start || '#441AAD',
-                color_end: review.color_end || '#2A0E6E',
-            }),
+            // No Content-Type header needed, browser sets it for FormData
+            body: formData,
         });
-        
+
         if (!response.ok) {
             const error = await response.json();
             throw new Error(error.message || 'Failed to submit review');
         }
-        
+
         const data = await response.json();
         return {
             success: true,

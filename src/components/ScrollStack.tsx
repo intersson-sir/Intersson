@@ -115,7 +115,11 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
       const triggerEnd = cardTop - scaleEndPositionPx;
       const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
-      const pinEnd = endElementTop - containerHeight / 2;
+
+      const nextCard = cardsRef.current[i + 1];
+      const nextPinStart = nextCard
+        ? getElementOffset(nextCard) - stackPositionPx - itemStackDistance * (i + 1)
+        : endElementTop - containerHeight / 2;
 
       const scaleProgress = calculateProgress(scrollTop, triggerStart, triggerEnd);
       const targetScale = baseScale + i * itemScale;
@@ -140,20 +144,29 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       }
 
       let translateY = 0;
-      const isPinned = scrollTop >= pinStart && scrollTop <= pinEnd;
+      const isPinned = scrollTop >= pinStart && scrollTop <= nextPinStart;
 
       if (isPinned) {
         translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i;
-      } else if (scrollTop > pinEnd) {
-        translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
+      } else if (scrollTop > nextPinStart) {
+        // When next card pins, this card moves up and out
+        const moveOutProgress = calculateProgress(scrollTop, nextPinStart, nextPinStart + 150);
+        translateY = (nextPinStart - cardTop + stackPositionPx + itemStackDistance * i) - (moveOutProgress * 100);
       }
 
       const newTransform = {
         translateY: Math.round(translateY * 100) / 100,
         scale: Math.round(scale * 1000) / 1000,
         rotation: Math.round(rotation * 100) / 100,
-        blur: Math.round(blur * 100) / 100
+        blur: Math.round(blur * 100) / 100,
+        opacity: 1
       };
+
+      if (nextCard) {
+        const fadeStart = nextPinStart - 50;
+        const fadeEnd = nextPinStart + 100; // Finish fading while moving up
+        newTransform.opacity = Math.round((1 - calculateProgress(scrollTop, fadeStart, fadeEnd)) * 100) / 100;
+      }
 
       const lastTransform = lastTransformsRef.current.get(i);
       const hasChanged =
@@ -161,7 +174,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
         Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
         Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
+        Math.abs(lastTransform.blur - newTransform.blur) > 0.1 ||
+        Math.abs(lastTransform.opacity - newTransform.opacity) > 0.01;
 
       if (hasChanged) {
         const transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
@@ -169,12 +183,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
         card.style.transform = transform;
         card.style.filter = filter;
+        card.style.opacity = newTransform.opacity.toString();
 
         lastTransformsRef.current.set(i, newTransform);
       }
 
       if (i === cardsRef.current.length - 1) {
-        const isInView = scrollTop >= pinStart && scrollTop <= pinEnd;
+        const isInView = scrollTop >= pinStart && scrollTop <= nextPinStart;
         if (isInView && !stackCompletedRef.current) {
           stackCompletedRef.current = true;
           onStackComplete?.();

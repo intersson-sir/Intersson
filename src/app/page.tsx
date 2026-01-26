@@ -12,6 +12,7 @@ import DiscussButton from '@/components/DiscussButton';
 import FeaturesScroll from '@/components/FeaturesScroll';
 import CountUp from '@/components/CountUp';
 import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack';
+import { getIndustries, Industry as APIIndustry } from '@/lib/api';
 
 // Asset Mappings from downloaded files
 // Using the order from Figma output to map to logical names
@@ -42,6 +43,14 @@ const ICONS = {
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [industries, setIndustries] = useState<Array<{
+    icon: string;
+    title: string;
+    count: string;
+    gradient: string;
+    slug: string;
+  }>>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -50,6 +59,31 @@ export default function Home() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Load industries from API
+    async function loadIndustries() {
+      setLoading(true);
+      try {
+        const data = await getIndustries();
+        const formattedIndustries = data.map(industry => ({
+          icon: industry.icon,
+          title: industry.name,
+          count: `${industry.template_count} template${industry.template_count !== 1 ? 's' : ''}`,
+          gradient: industry.gradient,
+          slug: industry.slug
+        }));
+        setIndustries(formattedIndustries);
+      } catch (error) {
+        console.error('Failed to load industries:', error);
+        // Fallback to static data if API fails
+        setIndustries(staticIndustries);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadIndustries();
   }, []);
 
   const features = [
@@ -97,74 +131,75 @@ export default function Home() {
     }
   ];
 
-  const industries = [
+  // Static fallback data
+  const staticIndustries = [
     {
       icon: ICONS.business,
       title: "Business & Services",
-      count: "15 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #00D4FF 0%, #0099FF 100%)",
       slug: "business-services"
     },
     {
       icon: ICONS.ecommerce,
       title: "E-commerce",
-      count: "20 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)",
       slug: "ecommerce"
     },
     {
       icon: ICONS.personal,
       title: "Personal Brands",
-      count: "12 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)",
       slug: "personal-brands"
     },
     {
       icon: ICONS.restaurants,
       title: "Restaurants & Delivery",
-      count: "10 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #FF5B5B 0%, #FF3333 100%)",
       slug: "restaurants-delivery"
     },
     {
       icon: ICONS.fashion,
       title: "Medicine & Beauty",
-      count: "14 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #FF3BFF 0%, #D42EC6 100%)",
       slug: "medicine-beauty"
     },
     {
       icon: ICONS.construction,
       title: "Construction & RE",
-      count: "11 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #6B7280 0%, #4B5563 100%)",
       slug: "construction-real-estate"
     },
     {
       icon: ICONS.education,
       title: "Education",
-      count: "13 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #615FFF 0%, #2B7FFF 100%)",
       slug: "education"
     },
     {
       icon: ICONS.tech,
       title: "Tech / SaaS",
-      count: "18 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #00D4D4 0%, #00A8A8 100%)",
       slug: "tech-saas"
     },
     {
       icon: ICONS.events,
       title: "Events",
-      count: "9 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #9B5FFF 0%, #7B3FFF 100%)",
       slug: "events"
     },
     {
       icon: ICONS.sports,
       title: "Fitness & Sports",
-      count: "10 templates",
+      count: "0 templates",
       gradient: "linear-gradient(135deg, #00E5A0 0%, #00B87C 100%)",
       slug: "fitness-sports"
     }

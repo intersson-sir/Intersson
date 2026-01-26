@@ -1,91 +1,66 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './reviews.module.css';
 import LiquidEtherWrapper from '@/components/LiquidEtherWrapper';
 import Navbar from '@/components/Navbar';
 import DiscussButton from '@/components/DiscussButton';
-
-// Initial Mock Data
-const INITIAL_REVIEWS = [
-    {
-        id: 1,
-        company: "TechFlow",
-        name: "Sarah Johnson",
-        role: "CTO",
-        service: "SaaS Platform",
-        review: "Intersson transformed our outdated platform into a modern, high-converting masterpiece. The subscription model made it incredibly affordable for our startup budget.",
-        colorStart: "#441AAD",
-        colorEnd: "#2A0E6E"
-    },
-    {
-        id: 2,
-        company: "Urban Eats",
-        name: "Mike Chen",
-        role: "Owner",
-        service: "Restaurant Website",
-        review: "We needed a site up in 3 days for our opening. They delivered in 48 hours. The online ordering integration works perfectly.",
-        colorStart: "#FF5B22",
-        colorEnd: "#C23600"
-    },
-    {
-        id: 3,
-        company: "StyleVogue",
-        name: "Emma Davis",
-        role: "Marketing Director",
-        service: "E-commerce",
-        review: "The design attention to detail is unmatched. Our sales increased by 40% in the first month after the redesign.",
-        colorStart: "#FF3BFF",
-        colorEnd: "#D42EC6"
-    },
-    {
-        id: 4,
-        company: "BuildRight",
-        name: "John Smith",
-        role: "Project Manager",
-        service: "Construction Portfolio",
-        review: "Professional, fast, and exactly what we needed. The continuous support integration means we never worry about updates.",
-        colorStart: "#6B7280",
-        colorEnd: "#4B5563"
-    },
-    {
-        id: 5,
-        company: "Mindful",
-        name: "Lisa Wong",
-        role: "Founder",
-        service: "Personal Brand",
-        review: "They captured my personal brand perfectly. I've received so many compliments on the new site design.",
-        colorStart: "#00E5A0",
-        colorEnd: "#00B87C"
-    },
-    {
-        id: 6,
-        company: "AutoFix",
-        name: "David Miller",
-        role: "Manager",
-        service: "Service Booking",
-        review: "The booking system they implemented saved us hours of phone time every day. Highly recommended!",
-        colorStart: "#FF5B5B",
-        colorEnd: "#FF3333"
-    }
-];
+import { getReviews, submitReview, Review } from '@/lib/api';
 
 export default function ReviewsPage() {
+    const [reviews, setReviews] = useState<Review[]>([]);
+    const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         company: '',
         role: '',
         service: '',
-        review: ''
+        review_text: ''
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    useEffect(() => {
+        // Load reviews from API
+        async function loadReviews() {
+            setLoading(true);
+            try {
+                const data = await getReviews();
+                setReviews(data);
+            } catch (error) {
+                console.error('Failed to load reviews:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadReviews();
+    }, []);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, this would submit to an API
-        alert("Thank you for your review! It has been submitted for moderation.");
-        setIsModalOpen(false);
-        setFormData({ name: '', company: '', role: '', service: '', review: '' });
+        setIsSubmitting(true);
+
+        try {
+            const result = await submitReview({
+                name: formData.name,
+                company: formData.company,
+                role: formData.role,
+                service: formData.service,
+                review_text: formData.review_text,
+            });
+
+            if (result.success) {
+                alert(result.message);
+                setIsModalOpen(false);
+                setFormData({ name: '', company: '', role: '', service: '', review_text: '' });
+            } else {
+                alert(`Error: ${result.message}`);
+            }
+        } catch (error) {
+            alert("Failed to submit review. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -122,25 +97,35 @@ export default function ReviewsPage() {
             </section>
 
             <div className={styles.grid}>
-                {INITIAL_REVIEWS.map((review) => (
-                    <div key={review.id} className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <div
-                                className={styles.iconBox}
-                                style={{ background: `linear-gradient(135deg, ${review.colorStart}, ${review.colorEnd})` }}
-                            >
-                                <div className={styles.iconOverlay}></div>
-                                {review.company.substring(0, 2).toUpperCase()}
-                            </div>
-                            <div className={styles.userInfo}>
-                                <div className={styles.userName}>{review.name}</div>
-                                <div className={styles.userRole}>{review.role} at {review.company}</div>
-                            </div>
-                        </div>
-                        <div className={styles.serviceBadge}>{review.service}</div>
-                        <p className={styles.reviewText}>"{review.review}"</p>
+                {loading ? (
+                    <div style={{ textAlign: 'center', padding: '40px', gridColumn: '1 / -1' }}>
+                        <p style={{ color: 'white', fontSize: '18px' }}>Loading reviews...</p>
                     </div>
-                ))}
+                ) : reviews.length > 0 ? (
+                    reviews.map((review) => (
+                        <div key={review.id} className={styles.card}>
+                            <div className={styles.cardHeader}>
+                                <div
+                                    className={styles.iconBox}
+                                    style={{ background: `linear-gradient(135deg, ${review.color_start}, ${review.color_end})` }}
+                                >
+                                    <div className={styles.iconOverlay}></div>
+                                    {review.company.substring(0, 2).toUpperCase()}
+                                </div>
+                                <div className={styles.userInfo}>
+                                    <div className={styles.userName}>{review.name}</div>
+                                    <div className={styles.userRole}>{review.role} at {review.company}</div>
+                                </div>
+                            </div>
+                            <div className={styles.serviceBadge}>{review.service}</div>
+                            <p className={styles.reviewText}>"{review.review_text}"</p>
+                        </div>
+                    ))
+                ) : (
+                    <div style={{ textAlign: 'center', padding: '40px', gridColumn: '1 / -1' }}>
+                        <p style={{ color: 'white', fontSize: '18px' }}>No reviews yet. Be the first to leave a review!</p>
+                    </div>
+                )}
             </div>
 
             <div className={styles.footer}>
@@ -229,14 +214,14 @@ export default function ReviewsPage() {
                                 <textarea
                                     className={styles.textarea}
                                     required
-                                    value={formData.review}
-                                    onChange={e => setFormData({ ...formData, review: e.target.value })}
+                                    value={formData.review_text}
+                                    onChange={e => setFormData({ ...formData, review_text: e.target.value })}
                                     placeholder="Tell us about your experience..."
                                 />
                             </div>
 
-                            <button type="submit" className={styles.submitButton}>
-                                Submit Review
+                            <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+                                {isSubmitting ? 'Submitting...' : 'Submit Review'}
                             </button>
                         </form>
                     </div>

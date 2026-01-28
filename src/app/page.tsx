@@ -591,6 +591,33 @@ export default function Home() {
                 <li>Security & compliance</li>
               </ul>
             </div>
+
+            {/* New AI Solutions Card - Full Width */}
+            <div className={styles.customDevCard} style={{ gridColumn: '1 / -1' }}>
+              <div className={styles.customDevIconLarge} style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
+                  <path d="M12 6v6l4 2" />
+                  <path d="M15 9l-6 6" strokeOpacity="0.5" />
+                  <circle cx="12" cy="12" r="3" fill="white" fillOpacity="0.2" />
+                </svg>
+              </div>
+              <h3 className={styles.customDevTitle}>AI Solutions & Automation</h3>
+              <p className={styles.customDevText}>
+                We build custom AI models, automate complex business processes, and integrate intelligent solutions
+                into your existing workflow. From chatbots to predictive analytics, we help you leverage the power of AI.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
+                <ul className={styles.customDevList} style={{ border: 'none' }}>
+                  <li>Custom AI Models</li>
+                  <li>Process Automation</li>
+                </ul>
+                <ul className={styles.customDevList} style={{ border: 'none' }}>
+                  <li>Chatbots & Assistants</li>
+                  <li>Predictive Analytics</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '60px' }}>

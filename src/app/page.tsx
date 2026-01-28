@@ -248,7 +248,7 @@ export default function Home() {
           <span className={styles.titleLine}>Through Subscription</span>
         </h1>
         <p className={styles.subtitle}>
-          Get a custom website for just $100-$500/month. No upfront costs.
+          Get a custom website for just $90-$490/month. No upfront costs.
           Launch in 1-3 days. Buy it out anytime when your business grows.
         </p>
 
@@ -280,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className={styles.section} style={{ position: 'relative', overflow: 'visible' }}>
+      <section id="features" className={styles.section} style={{ position: 'relative', overflow: 'visible' }}>
         <div className={styles.sectionHeader} style={{ position: 'relative', zIndex: 1 }}>
           <div className={styles.tag}>Why Choose Us</div>
           <h2 className={styles.title} style={{ fontSize: '48px' }}>Built for Entrepreneurs</h2>
@@ -352,10 +352,13 @@ export default function Home() {
       </section>
 
       {/* Trusted Companies Section */}
-      <section className={styles.section} style={{ paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden', zIndex: 'auto' }}>
-        <div className={styles.sectionHeader} style={{ marginBottom: '60px' }}>
-          <div className={styles.tag}>Trusted Worldwide</div>
-          <h2 className={styles.title}>Companies That Trust Us</h2>
+      {/* Trusted Companies Section - Full Width */}
+      <section style={{ width: '100%', paddingTop: '60px', paddingBottom: '80px', overflow: 'hidden', position: 'relative' }}>
+        <div className={styles.section} style={{ padding: '0 20px', paddingBottom: '60px', marginBottom: 0 }}>
+          <div className={styles.sectionHeader} style={{ marginBottom: 0 }}>
+            <div className={styles.tag}>Trusted Worldwide</div>
+            <h2 className={styles.title}>Companies That Trust Us</h2>
+          </div>
         </div>
 
         <div className={styles.trustedCompaniesWrapper}>
@@ -419,6 +422,7 @@ export default function Home() {
       <section id="pricing" className={styles.section}>
         <div className={styles.sectionHeader}>
           <div className={styles.tag}>Simple Pricing</div>
+          <div className={styles.tag} style={{ marginLeft: '10px' }}>soon</div>
           <h2 className={styles.title} style={{ fontSize: '48px' }}>Choose Your Plan</h2>
           <p className={styles.subtitle}>Start with monthly subscription, buy out anytime</p>
         </div>
@@ -426,10 +430,10 @@ export default function Home() {
         <div className={styles.pricingGrid}>
           <PricingCard
             title="Starter"
-            price="100"
+            price="90"
             buyout="1,500"
             features={[
-              'Up to 2 pages',
+              'Landing page',
               'Basic template customization',
               'Mobile responsive',
               'SSL certificate included',
@@ -440,10 +444,10 @@ export default function Home() {
           />
           <PricingCard
             title="Professional"
-            price="250"
+            price="190"
             buyout="3,500"
             features={[
-              'Up to 5 pages',
+              'Up to 3 pages',
               'Advanced customization',
               'Mobile responsive',
               'SSL certificate included',
@@ -451,18 +455,17 @@ export default function Home() {
               'Priority email support',
               'Hosting included',
               'Contact forms',
-              'Basic SEO optimization',
-              'Google Analytics'
+              'Basic SEO optimization'
             ]}
             featured={true}
           />
           <PricingCard
             title="Enterprise"
-            price="500"
+            price="490"
             buyout="6,500"
             features={[
-              'Up to 10 pages',
-              'Full custom design',
+              'Up to 6 pages',
+              'Full customization',
               'Mobile responsive',
               'SSL certificate included',
               'Unlimited content updates',
@@ -470,8 +473,6 @@ export default function Home() {
               'Premium hosting',
               'Advanced forms',
               'Full SEO optimization',
-              'Google Analytics',
-              'E-commerce integration',
               'Custom functionality',
               'Performance optimization'
             ]}

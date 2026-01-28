@@ -137,19 +137,7 @@ export default function ReviewsPage() {
                 </button>
             </div>
 
-            <div className={styles.quoteSection}>
-                <div className={styles.quoteTopLine}></div>
-                <div className={styles.quoteContent}>
-                    <div className={styles.quoteSymbol}>“</div>
-                    <p className={styles.quoteBody}>
-                        Working with our clients and their projects has taught us that technology only matters when it genuinely helps people move forward. We care deeply about quality, respect our clients’ time, and believe every project deserves personal attention. We take the time to understand each challenge, because every solution we build creates a small industry impact and that’s something we’re proud of.”
-                    </p>
-                </div>
-                <div className={styles.quoteFooter}>
-                    <div className={styles.quoteBottomLine}></div>
-                    <div className={styles.quoteAuthor}>FOUNDER INTERSSON</div>
-                </div>
-            </div>
+
 
             {/* Modal */}
             {isModalOpen && (
@@ -228,9 +216,7 @@ export default function ReviewsPage() {
                 </div>
             )}
 
-            <div style={{ position: 'fixed', bottom: '30px', right: '30px', zIndex: 50 }}>
-                <DiscussButton />
-            </div>
+
         </main>
     );
 }

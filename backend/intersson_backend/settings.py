@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-dev-key-change-in-production'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'intersson.com', 'www.intersson.com', '89.124.73.141']
 
 
 # Application definition
@@ -119,6 +119,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:3001",
     "http://127.0.0.1:3002",
+    "https://intersson.com",
+    "https://www.intersson.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
